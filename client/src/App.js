@@ -1,19 +1,16 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
+
+import HomePage from './pages/homepage.component';
 
 import './App.css';
 
 class App extends React.Component {
-  componentDidMount() {
-    axios.get('/api/categories')
-      .then(res => console.log(res.data))
-  }
 
   render() {
     return (
       <div className='App'>
-        App
+        <Route exact path='/' component={HomePage} />
       </div>
     );
   };
