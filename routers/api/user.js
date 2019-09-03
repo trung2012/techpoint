@@ -63,7 +63,9 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const existingUser = await User.findOne({ email }).populate('cart')
+    const existingUser = await User.findOne({ email }).populate({
+      path: 'cart.item'
+    })
     const isMatch = await bcrypt.compare(password, existingUser.password)
 
     if (!isMatch) {
