@@ -14,18 +14,19 @@ router.post('/', async (req, res) => {
     return res.status(400).send('Please fill all fields')
   }
 
-  const user = await User.findOne({ email })
-  if (user) {
-    return res.status(400).send('User already exists')
-  }
-
-  const newUser = new User({
-    name,
-    email,
-    password
-  })
-
   try {
+    const existingUser = await User.findOne({ email })
+    if (existingUser) {
+      return res.status(400).send('User already exists')
+    }
+
+    const newUser = new User({
+      name,
+      email,
+      password,
+      cart: []
+    })
+
     const hashedPassword = await new Promise((resolve, reject) => {
       bcrypt.hash(newUser.password, 10, (err, hash) => {
         if (err) reject(err)
@@ -62,8 +63,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const existingUser = await User.findOne({ email })
-
+    const existingUser = await User.findOne({ email }).populate('cart')
     const isMatch = await bcrypt.compare(password, existingUser.password)
 
     if (!isMatch) {
@@ -78,7 +78,8 @@ router.post('/login', async (req, res) => {
         user: {
           id: existingUser._id,
           name: existingUser.name,
-          email: existingUser.email
+          email: existingUser.email,
+          cart: existingUser.cart
         }
       })
     })

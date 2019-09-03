@@ -22,14 +22,34 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-  }
-})
+  },
+  cart: [{
+    item: {
+      itemId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Item'
+      },
+      quantity: {
+        type: Number
+      }
+    }
+  }]
+}, { id: false })
 
-userSchema.virtual('cart', {
-  ref: 'Cart',
-  localField: '_id',
-  foreignField: 'owner'
-})
+// userSchema.virtual('cartItems', {
+//   ref: 'Item',
+//   localField: 'cart',
+//   foreignField: '_id'
+// })
+
+// userSchema.post('find', async users => {
+//   for (let user of users) {
+//     await user.populate('cart').execPopulate();
+//   }
+// })
+
+userSchema.set('toObject', { virtuals: true })
+userSchema.set('toJSON', { virtuals: true })
 
 const User = mongoose.model('User', userSchema);
 

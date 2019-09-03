@@ -1,9 +1,10 @@
-//Populate items and categories
+// const express = require('express');
+// const router = new express.Router();
 
 // const Category = require('./models/category');
 // const Item = require('./models/item');
 
-// app.post('/items', async (req, res) => {
+// router.post('/items', async (req, res) => {
 //   const item = new Item({
 //     ...req.body
 //   })
@@ -16,7 +17,7 @@
 //   }
 // })
 
-// app.post('/categories', async (req, res) => {
+// router.post('/categories', async (req, res) => {
 //   const category = new Category({
 //     ...req.body
 //   })

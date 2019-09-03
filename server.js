@@ -3,7 +3,7 @@ require('./db/mongoose');
 const cors = require('cors');
 const categoryRouter = require('./routers/api/category');
 const userRouter = require('./routers/api/user');
-
+const cartRouter = require('./routers/api/cart');
 
 const app = express();
 
@@ -12,6 +12,7 @@ app.use(cors());
 
 app.use('/api/categories', categoryRouter)
 app.use('/api/users', userRouter)
+app.use('/api/cart', cartRouter)
 
 const port = process.env.PORT || 5000;
 
