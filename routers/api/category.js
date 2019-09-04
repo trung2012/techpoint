@@ -8,8 +8,7 @@ router.get('/', async (req, res) => {
     return res.status(200).send(categories)
 
   } catch (err) {
-    console.log(err)
-    res.status(500).send()
+    res.status(500).send('Data not available')
   }
 })
 

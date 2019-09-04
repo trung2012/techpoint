@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
     type: String
   },
   price: {
-    type: mongoose.Decimal128
+    type: Number
   },
   shipping: {
     type: String

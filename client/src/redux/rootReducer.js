@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
+import shopReducer from './shop/shop.reducer';
+import errorReducer from './error/error.reducer';
 
 const rootReducer = combineReducers({
-  shop: () => {
-    return null
-  }
+  shopReducer,
+  errorReducer
 })
 
 export default rootReducer;

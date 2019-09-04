@@ -1,0 +1,10 @@
+.product-overview-category {
+  display: flex;
+  flex-direction: column;
+
+  .category-list {
+    display: flex;
+    margin: 5rem 1rem;    
+  }
+}
+
