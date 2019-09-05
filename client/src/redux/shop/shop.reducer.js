@@ -4,7 +4,7 @@ import {
 } from './shop.types'
 
 const initialState = {
-  categoriesData: [],
+  categories: [],
   isLoading: false,
 }
 
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case FETCH_SHOP_DATA_START:
       return { ...state, isLoading: true }
     case FETCH_SHOP_DATA_SUCCESS:
-      return { ...state, categoriesData: action.payload, isLoading: false }
+      return { ...state, categories: action.payload, isLoading: false }
     default:
       return state;
   }

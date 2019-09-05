@@ -28,7 +28,7 @@ class ProductOverview extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.shopReducer.categoriesData,
+  categories: state.shopReducer.categories,
   isLoading: state.shopReducer.isLoading
 })
 
