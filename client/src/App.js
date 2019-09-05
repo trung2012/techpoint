@@ -1,22 +1,30 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { fetchShopData } from './redux/shop/shop.actions';
 import HomePage from './pages/homepage.component';
+import ShopPage from './pages/shoppage.component';
 import Header from './components/header.component';
 
 import './App.css';
+
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchShopData();
+  }
 
   render() {
     return (
       <div className='App'>
+        <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/header' component={Header} />
+          <Route path='/shop' component={ShopPage} />
         </Switch>
       </div>
     );
   };
 }
 
-export default App;
+export default connect(null, { fetchShopData })(App);

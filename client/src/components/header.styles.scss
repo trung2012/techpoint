@@ -1,18 +1,65 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin: 4rem 6rem;
+  padding: 4rem 6rem;
+  position: relative;
+
+  .logo {
+    width: 25rem;
+    cursor: pointer;
+  }
 
   .navigation-links {
     display: flex;
-    margin-top: 8rem;
+    margin-top: 3.5rem;
 
     .navigation-item {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #006eff;
       margin-right: 4rem;
+      cursor: pointer;
+
+      a[disabled] {
+        pointer-events: none;
+      }
+      
+      &::after {
+        content: '';
+        display: block;
+        transform: scaleX(0);
+        height: .2rem;
+        background-color: #006eff;
+        transition: all .3s ease-out;
+        margin-top: .5rem;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+          transform: scaleX(1);
+          transform-origin: 50% 50%;
+        }
+      }
 
       &:last-child {
         margin-right: 5rem;
       }
     }
+      
+    .shop {
+      .shop-link {
+        text-decoration: none;  
+        color: #006eff;
+      }
+      
+      &:hover {        
+        .navigation-dropdown {
+          visibility: visible;
+          transition-delay: 0s;
+        }
+      }
+    }
+    
   }
 }

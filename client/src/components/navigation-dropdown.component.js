@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import NavigationDropdownItem from './navigation-dropdown-item.component';
 import './navigation-dropdown.styles.scss';
@@ -18,9 +17,4 @@ const NavigationDropdown = ({ categories }) => {
   );
 }
 
-
-const mapStateToProps = state => ({
-  categories: state.shopReducer.categories
-})
-
-export default connect(mapStateToProps)(NavigationDropdown);
+export default (NavigationDropdown);

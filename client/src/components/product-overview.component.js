@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
-import { fetchShopData } from '../redux/shop/shop.actions';
-import ProductOverviewCategory from './product-overview-category.component';
+
+import { createStructuredSelector } from 'reselect';
+import { selectCategoryItems, selectIsCategoriesLoading } from '../redux/shop/shop.selectors';
+import ProductCategory from './product-category.component';
+
 import './product-overview.styles.scss';
 
 class ProductOverview extends React.Component {
-  componentDidMount() {
-    this.props.fetchShopData();
-  }
 
   render() {
     const { categories, isLoading } = this.props;
@@ -18,7 +17,7 @@ class ProductOverview extends React.Component {
           <h1 className='page-title'>Shop your favorite tech</h1>
           {categories ?
             categories.map(({ _id, ...otherProps }) => {
-              return <ProductOverviewCategory key={_id} {...otherProps} />
+              return <ProductCategory key={_id} {...otherProps} i={5} />
             })
             : 'Loading'
           }
@@ -27,9 +26,9 @@ class ProductOverview extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  categories: state.shopReducer.categories,
-  isLoading: state.shopReducer.isLoading
+const mapStateToProps = createStructuredSelector({
+  categories: selectCategoryItems,
+  isLoading: selectIsCategoriesLoading
 })
 
-export default connect(mapStateToProps, { fetchShopData })(ProductOverview);
+export default connect(mapStateToProps)(ProductOverview);
