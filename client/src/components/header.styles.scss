@@ -7,6 +7,10 @@
   .logo {
     width: 25rem;
     cursor: pointer;
+    
+    &:hover {
+      animation: bounce 1s cubic-bezier(0.280, 0.840, 0.420, 1);
+    }
   }
 
   .navigation-links {
@@ -62,4 +66,14 @@
     }
     
   }
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-5rem); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-.7rem); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
 }

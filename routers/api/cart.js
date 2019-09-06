@@ -8,21 +8,22 @@ router.post('/', auth, async (req, res) => {
   try {
     const { user } = req;
 
-    const existingItem = user.cart.find(item => item.item.toString() === req.body.item.item)
+    const existingItem = user.cart.find(item => item.item.toString() === req.body.item)
+
     if (existingItem) {
-      user.cart.forEach(item => {
-        if (item.item.toString() === req.body.item.item) {
-          item.quantity += req.body.item.quantity
-        }
+      const newCart = user.cart.map(item => {
+        return item.item.toString() === req.body.item ?
+          { ...req.body, quantity: item.quantity + 1 }
+          : item
       })
-      await user.save()
-      return res.status(200).send(user.cart)
+      user.cart = newCart;
+    } else {
+      newItem = { ...req.body, quantity: 1 }
+      user.cart = [...user.cart, newItem]
     }
 
-    user.cart = [...user.cart, req.body.item]
-    await user.save();
-
-    res.status(201).send(user.cart)
+    await user.save()
+    return res.status(201).send(user.cart)
   } catch (err) {
     res.status(500).send('Something went wrong')
   }

@@ -1,27 +1,19 @@
 .custom-button {
-  height: 4rem;
+  height: 3.8rem;
   min-width: 18rem;
-  width: auto;
+  width: 80%;
   background: #333;
   color: #fff;
-  border-radius: .5rem;
   box-shadow: none;
   text-transform: uppercase;
-  font-weight: 600;
   cursor: pointer;
   font-size: 1.2rem;
   border: .05rem solid #fff;
+  margin-bottom: 1rem;
 
   &:hover {
     color: #333;
     background: #fff;
     border: .05rem solid #333;
-  }
-
-  .add-to-cart {
-    color: #333;
-    background: #fff;
-    width: 80%;
-    text-align: center;
   }
 }

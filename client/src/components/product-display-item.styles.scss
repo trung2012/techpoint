@@ -1,8 +1,21 @@
-.product-overview-item {
+.product-display-item {
   display: flex;
   flex-direction: column;
   padding: 1rem 4rem;
   position: relative;
+  align-items: center;
+
+  .custom-button {
+    display: block;
+    visibility: hidden;
+    width: 80%;
+  }
+
+  &:hover {
+    .custom-button {
+      visibility: visible;
+    }
+  }
 
   &:first-child::after {
     display: none;
@@ -26,9 +39,9 @@
     background: #eee;
     display: block;
     position: absolute;
-    height: 100%;
+    height: 95%;
     width: .1rem;
-    margin-left: -4rem;
+    margin-left: -13.5rem;
   }
 
   .item-image-container {
@@ -36,22 +49,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
     cursor: pointer;
-    position: relative;
-    
-    .custom-button {
-      display: none;
-      position: absolute;
-      top: 18.5rem;
-      width: 80%;
-    }
-
-    &:hover {
-      .custom-button {
-        display: block;
-      }
-    }
+    position: relative;   
 
     .item-image {
       width: 100%;
