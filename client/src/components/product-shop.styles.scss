@@ -13,7 +13,7 @@
   .product-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin: 2rem 1rem;
 
     .product-display-item {

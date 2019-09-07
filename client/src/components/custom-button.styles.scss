@@ -11,6 +11,10 @@
   border: .05rem solid #fff;
   margin-bottom: 1.2rem;
 
+  &:focus {
+    outline: 0;
+  }
+
   &:hover {
     color: #333;
     background: #fff;
@@ -21,13 +25,13 @@
 .added-to-cart {
   font-weight: 600;
   background: #fff;
-  color: #006eff;
-  border: .1rem solid #006eff;
+  color: #333;
+  border: .1rem solid #333;
 
   &:hover {
-    color: #006eff;
+    color: #333;
     background: #fff;
-    border: .1rem solid #006eff;
+    border: .1rem solid #333;
   }
 }
 

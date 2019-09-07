@@ -7,6 +7,7 @@ import HomePage from './pages/homepage.component';
 import ShopPage from './pages/shoppage.component';
 import Header from './components/header.component';
 import CheckOut from './components/checkout.component';
+import ProductDetails from './components/product-details.component';
 
 import './App.css';
 
@@ -23,6 +24,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route exect path='/checkout' component={CheckOut} />
+          <Route path='/products/:id' component={ProductDetails} />
         </Switch>
       </div>
     );

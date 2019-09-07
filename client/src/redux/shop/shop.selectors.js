@@ -31,3 +31,15 @@ export const selectIsCategoriesLoading = createSelector(
   [selectShop],
   shop => shop.isLoading
 );
+
+export const selectShopItems = createSelector(
+  [selectCategories],
+  categories => categories.reduce((acc, category) => {
+    return acc.concat(...category.items)
+  }, [])
+)
+
+export const selectItemById = id => createSelector(
+  [selectShopItems],
+  items => items ? items.find(item => item._id === id) : undefined
+)

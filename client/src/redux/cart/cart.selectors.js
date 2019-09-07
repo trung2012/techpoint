@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { convertShippingToFloat } from '../../utils/helper';
 
 const selectCartReducer = state => state.cartReducer;
 
@@ -24,4 +25,11 @@ export const selectCartTotal = createSelector(
 export const selectAddedToCart = createSelector(
   [selectCartReducer],
   cart => cart.addedToCart
+)
+
+export const selectCartShipping = createSelector(
+  [selectCartItems],
+  items => items.reduce((acc, item) => {
+    return acc + convertShippingToFloat(item.shipping)
+  }, 0)
 )

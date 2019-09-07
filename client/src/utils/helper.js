@@ -22,3 +22,23 @@ export const convertCategoriesToMap = categories => {
     return acc;
   }, {})
 }
+
+export const convertShippingToFloat = shipping => {
+  if (shipping) {
+    if (!shipping.toLowerCase().includes('free')) {
+      const newShipping = parseFloat(shipping.replace(' Shipping', '').replace('$', ''))
+      return newShipping
+    }
+  }
+  return 0;
+}
+
+export const convertPriceToString = price => {
+  const priceArr = price.toLocaleString('en-US').split('.')
+  let [priceMain, priceSub] = priceArr;
+
+  if (!priceSub) {
+    priceSub = '00'
+  }
+  return { priceMain, priceSub }
+}

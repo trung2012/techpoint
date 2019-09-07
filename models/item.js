@@ -21,6 +21,9 @@ const itemSchema = new mongoose.Schema({
   },
   imageUrl: {
     type: String
+  },
+  imageUrlLarge: {
+    type: String
   }
 })
 

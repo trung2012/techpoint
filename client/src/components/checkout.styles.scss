@@ -34,10 +34,26 @@
     }
   }
   
-  .checkout-total {
-    width: 60%;
-    margin-top: 4rem;
-    text-align: right;
-    font-size: 3.5rem;
+  .checkout-totals {
+    align-self: flex-end;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .checkout-total {
+      width: 100%;
+      text-align: right;
+      font-size: 3.5rem;
+      margin: 1rem 0;
+    }
+  
+    .checkout-subtotal {
+      width: 100%;
+      text-align: right;
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
   }
+  
 }
