@@ -1,0 +1,64 @@
+.checkout-item {
+  width: 100%;
+  display: flex;  
+
+  .item-info {
+    width: 24%;
+    text-align: left;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+
+    &:first-child {
+      width: 21%;
+      padding-top: 0;
+    }
+
+    &:last-child {
+      width: 8%;
+      transform: translateX(2rem);
+    } 
+  }
+
+  .image-container {
+    width: 60%;
+
+    .item-image {
+      max-width: 100%;
+    }
+  }
+
+  .description {
+    transform: translateX(-2rem);
+  }
+
+  .quantity {
+    transform: translateX(1rem);
+    
+    .text-item {
+      padding: 0 .7rem;
+    }
+
+    .reduce-quantity,
+    .increase-quantity {
+      &:hover {
+        color: #006eff;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  .price {
+    font-weight: 600;
+    letter-spacing: .05rem;
+    transform: translateX(-1rem);
+  }
+
+  .remove {
+    font-weight: 900;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import {
   ADD_ITEM_TO_CART,
   REMOVE_ITEM_FROM_CART,
-  TOGGLE_CART_HIDDEN,
+  TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART
 } from './cart.types'
@@ -13,13 +13,13 @@ import {
 
 const initialState = {
   cartItems: [],
-  cartHidden: false,
+  addedToCart: false,
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_CART_HIDDEN:
-      return { ...state, cartHidden: !state.cartHidden }
+    case TOGGLE_ADDED_TO_CART:
+      return { ...state, addedToCart: !state.addedToCart }
     case ADD_ITEM_TO_CART:
       return { ...state, cartItems: generateCartAfterAddingItem(state.cartItems, action.payload) }
     case REMOVE_ITEM_FROM_CART:

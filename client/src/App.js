@@ -6,6 +6,7 @@ import { fetchShopData } from './redux/shop/shop.actions';
 import HomePage from './pages/homepage.component';
 import ShopPage from './pages/shoppage.component';
 import Header from './components/header.component';
+import CheckOut from './components/checkout.component';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
+          <Route exect path='/checkout' component={CheckOut} />
         </Switch>
       </div>
     );
