@@ -32,7 +32,7 @@ const ProductItem = ({ item, addItemToCart, addedToCart, toggleAddedToCart, hist
       }
       <div className='item-info-list'>
         <div className='item-info-item title' onClick={() => history.push(`/products/${_id}`)}>{limitString(title)}</div>
-        <div className='item-info-item price'>${price.toFixed(2)}</div>
+        <div className='item-info-item price'>${price.toLocaleString('en-US')}</div>
         <div className='item-info-item shipping'>{shipping}</div>
       </div>
     </div>

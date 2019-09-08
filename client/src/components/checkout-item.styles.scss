@@ -28,6 +28,7 @@
   }
 
   .description {
+    font-weight: 600;
     transform: translateX(-2rem);
   }
 
@@ -40,6 +41,9 @@
 
     .reduce-quantity,
     .increase-quantity {
+      &:focus {
+        outline: none;
+      }
       &:hover {
         color: #006eff;
         cursor: pointer;
@@ -60,5 +64,12 @@
     &:hover {
       color: red;
     }
+  }
+
+  .description,
+  .quantity,
+  .price,
+  .remove {
+    padding-top: 3rem;
   }
 }

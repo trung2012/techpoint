@@ -1,0 +1,19 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 8rem;
+
+  h1 {
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    width: 60%;
+    line-height: 2.2;
+  }
+}
+

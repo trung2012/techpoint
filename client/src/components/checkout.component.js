@@ -46,13 +46,13 @@ const CheckOut = ({ cartItems, cartTotal, cartShipping, history }) => {
               </div>
               <div className='checkout-totals'>
                 <div className='checkout-subtotal'>
-                  Subtotal: ${cartTotal === 0 ? 0 : cartTotal.toFixed(2)}
+                  Subtotal: ${cartTotal === 0 ? 0 : cartTotal.toLocaleString('en-US')}
                 </div>
                 <div className='checkout-subtotal'>
                   Shipping: ${cartShipping}
                 </div>
                 <div className='checkout-total'>
-                  Total: ${(cartTotal + cartShipping).toFixed(2)}
+                  Total: ${(cartTotal + cartShipping).toLocaleString('en-US')}
                 </div>
               </div>
             </div>

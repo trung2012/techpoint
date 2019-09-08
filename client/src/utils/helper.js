@@ -24,13 +24,11 @@ export const convertCategoriesToMap = categories => {
 }
 
 export const convertShippingToFloat = shipping => {
-  if (shipping) {
-    if (!shipping.toLowerCase().includes('free')) {
-      const newShipping = parseFloat(shipping.replace(' Shipping', '').replace('$', ''))
-      return newShipping
-    }
+  if (isNaN(shipping.replace(' Shipping', '').replace('$', ''))) {
+    return 0;
   }
-  return 0;
+
+  return parseFloat(shipping.replace(' Shipping', '').replace('$', ''));
 }
 
 export const convertPriceToString = price => {

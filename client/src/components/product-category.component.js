@@ -1,12 +1,16 @@
 import React from 'react';
 import ProductDisplayItem from './product-display-item.component';
+import { withRouter } from 'react-router-dom';
 
 import './product-category.styles.scss';
 
-const ProductCategory = ({ name, items, i }) => {
+const ProductCategory = ({ name, items, i, history }) => {
   return (
     <div className='product-overview-category'>
-      <h2 className='category-title'>{name.toUpperCase()}</h2>
+      <div className='category-header'>
+        <h2 className='category-title'>{name.toUpperCase()}</h2>
+        <span className='category-subtitle' onClick={() => history.push(`/shop/${name}`)}>See all</span>
+      </div>
       <div className='category-list'>
         {
           items
@@ -22,4 +26,4 @@ const ProductCategory = ({ name, items, i }) => {
 
 
 
-export default ProductCategory;
+export default withRouter(ProductCategory);

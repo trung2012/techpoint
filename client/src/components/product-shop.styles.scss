@@ -14,9 +14,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 2rem 1rem;
+    margin: 2rem 3rem;
 
     .product-display-item {
+      width: 25%;
+      align-items: center;
+      
       &::after {
         display: none;
       }
