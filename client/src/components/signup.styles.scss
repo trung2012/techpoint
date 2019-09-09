@@ -1,0 +1,61 @@
+.sign-up-page {
+  display: flex;
+  justify-content: center;
+  
+  .error-message {
+    color: red;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    align-items: center;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+    border: .1rem solid #00283a;
+    box-shadow: 1rem 1rem 2rem #c5c5c5;
+
+    .sign-up-form {
+      width: 32rem;
+    }
+
+    .sign-up-title {
+      font-size: 3rem;
+      align-self: center;
+      margin-bottom: 4rem;
+    }
+
+    .buttons-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .custom-button {
+      width: 20rem;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    .register-link {
+      color: #c5c5c5;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    .more-options {
+      text-align: center;
+    }
+  }
+}
+

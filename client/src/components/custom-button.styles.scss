@@ -2,7 +2,7 @@
   height: 3.8rem;
   min-width: 18rem;
   width: 80%;
-  background: #333;
+  background: #002333;
   color: #fff;
   box-shadow: none;
   text-transform: uppercase;
@@ -17,22 +17,22 @@
   }
 
   &:hover {
-    color: #333;
+    color: #002333;
     background: #fff;
-    border: .05rem solid #333;
+    border: .05rem solid #002333;
   }
 }
 
 .added-to-cart {
   font-weight: 600;
   background: #fff;
-  color: #333;
-  border: .1rem solid #333;
+  color: #002333;
+  border: .1rem solid #002333;
 
   &:hover {
-    color: #333;
+    color: #002333;
     background: #fff;
-    border: .1rem solid #333;
+    border: .1rem solid #002333;
   }
 }
 

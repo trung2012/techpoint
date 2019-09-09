@@ -1,11 +1,16 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 4rem 6rem;
+  align-items: center;
+  height: 8.5rem;
+  padding: 0 2rem;
   position: relative;
+  width: 100vw;
+  background: #00283a;
+  margin-bottom: 7rem;
 
   .logo {
-    width: 25rem;
+    margin-left: 1rem;
     cursor: pointer;
     
     &:hover {
@@ -16,12 +21,13 @@
   .navigation-links {
     display: flex;
     margin-top: 3.5rem;
+    margin-right: 5rem;
 
     .navigation-item {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      color: #006eff;
-      margin-right: 4rem;
+      color: #fff;
+      margin: 0 2.5rem;
       cursor: pointer;
 
       a[disabled] {
@@ -33,28 +39,24 @@
         display: block;
         transform: scaleX(0);
         height: .2rem;
-        background-color: #006eff;
+        background-color: #fff;
         transition: all .3s ease-out;
         margin-top: .5rem;
-      }
+        width: 100%;
+      }      
 
       &:hover {
         &::after {
-          width: 100%;
           transform: scaleX(1);
           transform-origin: 50% 50%;
         }
       }
-
-      &:last-child {
-        margin-right: 5rem;
-      }
     }
-      
+
     .shop {
       .shop-link {
         text-decoration: none;  
-        color: #006eff;
+        color: #fff;
       }
       
       &:hover {     
@@ -63,17 +65,51 @@
           transition-delay: 0s;
         }
       }
+    }    
+
+    .signed-in {
+      display: flex;    
+      position: relative;
+
+      .sign-out {
+        display: block;
+        position: absolute;
+        right: -7rem;
+        opacity: 0;
+        z-index: 1;
+        transition: transform .4s ease-out;
+        &::after {
+          display: none;
+        }
+      }
+
+      .welcome-message {
+        transition: all .2s ease-out;
+        &::after {
+          display: none;
+        }
+      }
+      
+      &:hover {
+        .welcome-message {
+          opacity: 0;
+        }
+        .sign-out {
+          transform: translateX(-10rem);
+          opacity: 1;
+        }
+      }
     }
-    
   }
+  
 }
 
 @keyframes bounce {
   0%   { transform: scale(1,1)      translateY(0); }
   10%  { transform: scale(1.1,.9)   translateY(0); }
-  30%  { transform: scale(.9,1.1)   translateY(-5rem); }
+  30%  { transform: scale(.9,1.1)   translateY(-3rem); }
   50%  { transform: scale(1.05,.95) translateY(0); }
-  57%  { transform: scale(1,1)      translateY(-.7rem); }
+  57%  { transform: scale(1,1)      translateY(-.5rem); }
   64%  { transform: scale(1,1)      translateY(0); }
   100% { transform: scale(1,1)      translateY(0); }
 }

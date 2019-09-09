@@ -25,7 +25,7 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
         <span className='text-item increase-quantity' onClick={() => addItemToCart(item)}>&#9658;</span>
       </div>
       <div className='item-info price'>
-        ${price}
+        ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
       </div>
       <div className='item-info remove' onClick={() => clearItemFromCart(item)}>&#10005;</div>
     </div>

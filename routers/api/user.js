@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
+const auth = require('../../middleware/auth');
 const User = require('../../models/user');
 const router = new express.Router();
 
@@ -44,11 +44,13 @@ router.post('/', async (req, res) => {
         user: {
           id: user._id,
           name: user.name,
-          email: user.email
+          email: user.email,
+          cart: user.cart
         }
       })
     })
   } catch (err) {
+    console.log(err)
     res.status(500).send('Something went wrong')
   }
 })
@@ -66,6 +68,11 @@ router.post('/login', async (req, res) => {
     const existingUser = await User.findOne({ email }).populate({
       path: 'cart.item'
     })
+
+    if (!existingUser) {
+      return res.status(404).send('User does not exist');
+    }
+
     const isMatch = await bcrypt.compare(password, existingUser.password)
 
     if (!isMatch) {
@@ -89,6 +96,14 @@ router.post('/login', async (req, res) => {
     res.status(500).send('Something went wrong')
   }
 
+})
+
+router.get('/', auth, (req, res) => {
+  if (req.user) {
+    return res.status(200).send({ token: req.token, user: req.user })
+  }
+
+  res.status(401).send('Authorization failed')
 })
 
 module.exports = router;

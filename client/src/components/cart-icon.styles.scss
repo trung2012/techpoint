@@ -5,10 +5,11 @@
   width: 6rem;
   height: 6rem;
   position: relative;
-  transform: translate(-.5rem ,-1.4rem);
+  margin-left: 2.5rem;
+  transform: translateY(-1.6rem);
 
   &:hover {
-    background: #f3f3f3;
+    background: #013953;
     border-radius: 50%;
   }
 
@@ -20,13 +21,13 @@
     height: 2.1rem;
     text-align: center;
     font-size: 1rem;
-    padding-top: .4rem;
+    padding-top: .35rem;
     border-radius: 50%;
-    background: #006eff;
+    background: rgb(255, 0, 0);
     color: white;
   }
 }
 
 .shopping-icon {
-  stroke: #006eff;
+  stroke: #fff;
 }

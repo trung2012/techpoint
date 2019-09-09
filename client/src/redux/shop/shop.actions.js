@@ -20,6 +20,6 @@ export const fetchShopData = () => dispatch => {
   dispatch(fetchShopDataStart());
   axios.get('/api/categories')
     .then(res => dispatch(fetchShopDataSuccess(res.data)))
-    .catch(err => dispatch(getErrors(err.response.data, err.response.status)))
+    .catch(err => dispatch(getErrors(err.response.data)))
 }
 

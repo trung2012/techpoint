@@ -7,7 +7,7 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 10rem;
   }
 
   .product-list {
@@ -19,6 +19,11 @@
     .product-display-item {
       width: 25%;
       align-items: center;
+      justify-content: flex-start;
+      
+      .custom-button {
+        margin: 1rem 0;
+      }
       
       &::after {
         display: none;

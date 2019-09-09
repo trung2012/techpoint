@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectCategory, selectIsCategoriesLoading } from '../redux/shop/shop.selectors';
 import ProductDisplayItem from './product-display-item.component';
+import Spinner from './spinner.component';
 
 import './product-shop.styles.scss';
 
-const ProductShop = ({ match, category }) => {
+const ProductShop = ({ isLoading, category }) => {
   return (
-    category ?
+    isLoading ? <Spinner /> :
       <div className='product-shop'>
         <h1 className='shop-title'>{category.name}</h1>
         <div className='product-list'>
@@ -18,7 +19,6 @@ const ProductShop = ({ match, category }) => {
           }
         </div>
       </div>
-      : null
   );
 }
 

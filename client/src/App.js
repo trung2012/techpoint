@@ -3,20 +3,23 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { fetchShopData } from './redux/shop/shop.actions';
+import { loadUser } from './redux/user/user.actions';
 import HomePage from './pages/homepage.component';
 import ShopPage from './pages/shoppage.component';
 import Header from './components/header.component';
 import CheckOut from './components/checkout.component';
 import ProductDetails from './components/product-details.component';
 import SignIn from './components/signin.component';
+import SignUp from './components/signup.component';
 import ContactPage from './pages/contact.component';
 
 
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   componentDidMount() {
     this.props.fetchShopData();
+    this.props.loadUser();
   }
 
   render() {
@@ -29,6 +32,7 @@ class App extends React.Component {
           <Route exect path='/checkout' component={CheckOut} />
           <Route exect path='/contact' component={ContactPage} />
           <Route exect path='/signin' component={SignIn} />
+          <Route exect path='/signup' component={SignUp} />
           <Route path='/products/:id' component={ProductDetails} />
         </Switch>
       </div>
@@ -36,4 +40,4 @@ class App extends React.Component {
   };
 }
 
-export default connect(null, { fetchShopData })(App);
+export default connect(null, { fetchShopData, loadUser })(App);

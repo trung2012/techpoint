@@ -3,9 +3,9 @@ import {
   CLEAR_ERRORS
 } from './error.types';
 
-export const getErrors = (message, status) => ({
+export const getErrors = (message) => ({
   type: GET_ERRORS,
-  payload: { message, status }
+  payload: message
 });
 
 export const clearErrors = () => ({

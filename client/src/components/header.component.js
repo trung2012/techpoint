@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import { signOut } from '../redux/user/user.actions';
+import { selectCurrentUser } from '../redux/user/user.selectors';
 import { selectCategoriesInfo } from '../redux/shop/shop.selectors';
 import NavigationDropdown from './navigation-dropdown.component';
 import CartIcon from './cart-icon.component';
@@ -10,7 +12,7 @@ import CartIcon from './cart-icon.component';
 import logo from '../assets/logo.png';
 import './header.styles.scss';
 
-const Header = ({ categories }) => {
+const Header = ({ categories, currentUser, signOut }) => {
   return (
     <div className='header'>
       <Link to='/' className='logo-container'>
@@ -23,7 +25,16 @@ const Header = ({ categories }) => {
           <NavigationDropdown categories={categories} />
         </div>
         <Link to='/contact' className='navigation-item contact'>Contact</Link>
-        <Link to='/signin' className='navigation-item sign-in'>Sign In</Link>
+        {
+          currentUser ?
+            <div className='signed-in'>
+              <div className='navigation-item welcome-message'>
+                Hello, {currentUser.name}
+              </div>
+              <div className='navigation-item sign-out' onClick={() => signOut()}>Sign Out</div>
+            </div>
+            : <Link to='/signin' className='navigation-item sign-in'>Sign In</Link>
+        }
         <Link to='/checkout'>
           <CartIcon />
         </Link>
@@ -33,7 +44,8 @@ const Header = ({ categories }) => {
 }
 
 const mapStateToProps = createStructuredSelector({
-  categories: selectCategoriesInfo
+  categories: selectCategoriesInfo,
+  currentUser: selectCurrentUser
 })
 
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(connect(mapStateToProps, { signOut })(Header));

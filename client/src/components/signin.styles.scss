@@ -1,11 +1,55 @@
-.sign-in {
+.sign-in-page {
   display: flex;
   justify-content: center;
+  margin-top: 4rem;
   
   .content-container {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 28%;
+    align-items: center;
+    padding: 3rem 0;
+    border: .1rem solid #00283a;
+    box-shadow: 1rem 1rem 2rem #c5c5c5;
+
+    .sign-in-form {
+      width: 32rem;
+    }
+
+    .sign-in-title {
+      align-self: center;
+      margin-bottom: 6rem;
+      color: #00283a;
+    }
+
+    .buttons-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .custom-button {
+      width: 20rem;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    .register-link {
+      color: #00283a;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    .more-options {
+      text-align: center;
+    }
   }
 }
 

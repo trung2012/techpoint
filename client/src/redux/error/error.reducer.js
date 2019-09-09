@@ -4,14 +4,13 @@ import {
 } from './error.types';
 
 const initialState = {
-  errorMessage: '',
-  status: null
+  errorMessage: null
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_ERRORS:
-      return { ...state, errorMessage: action.payload.message, status: action.payload.status }
+      return { ...state, errorMessage: action.payload }
     case CLEAR_ERRORS:
       return state
     default:
