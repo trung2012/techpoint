@@ -5,16 +5,18 @@ const categoryRouter = require('./routers/api/category');
 const userRouter = require('./routers/api/user');
 const cartRouter = require('./routers/api/cart');
 const itemRouter = require('./routers/api/item');
+const paymentRouter = require('./routers/api/payment');
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/categories', categoryRouter)
-app.use('/api/users', userRouter)
-app.use('/api/cart', cartRouter)
-app.use('/api/items', itemRouter)
+app.use('/api/categories', categoryRouter);
+app.use('/api/users', userRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/items', itemRouter);
+app.use('/api/payment', paymentRouter);
 
 const port = process.env.PORT || 5000;
 

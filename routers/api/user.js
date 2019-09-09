@@ -65,9 +65,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const existingUser = await User.findOne({ email }).populate({
-      path: 'cart.item'
-    })
+    const existingUser = await User.findOne({ email })
 
     if (!existingUser) {
       return res.status(404).send('User does not exist');

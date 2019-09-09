@@ -21,3 +21,15 @@ export const generateCartAfterRemovingItem = (cartItems, item) => {
     return cartItem._id === item._id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem;
   })
 }
+
+export const generateUserCartBeforeMerge = (stateCart, userCart) => {
+  userCart.forEach(userCartItem => {
+    const existingStateCartItem = stateCart.find(stateCartItem => stateCartItem._id === userCartItem._id)
+    if (existingStateCartItem) {
+      userCartItem.quantity += existingStateCartItem.quantity
+      stateCart = stateCart.filter(stateCartItem => stateCartItem._id !== existingStateCartItem._id)
+    }
+  })
+
+  return [...userCart, ...stateCart];
+}

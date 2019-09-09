@@ -1,12 +1,24 @@
 import {
-  GET_ERRORS,
+  SHOP_ERROR,
+  SIGNIN_ERROR,
+  SIGNUP_ERROR,
   CLEAR_ERRORS
 } from './error.types';
 
-export const getErrors = (message) => ({
-  type: GET_ERRORS,
+export const shopError = message => ({
+  type: SHOP_ERROR,
   payload: message
 });
+
+export const signInError = message => ({
+  type: SIGNIN_ERROR,
+  payload: message
+})
+
+export const signUpError = message => ({
+  type: SIGNUP_ERROR,
+  payload: message
+})
 
 export const clearErrors = () => ({
   type: CLEAR_ERRORS

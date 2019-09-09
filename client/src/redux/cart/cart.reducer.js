@@ -3,12 +3,14 @@ import {
   REMOVE_ITEM_FROM_CART,
   TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
-  CLEAR_CART
+  CLEAR_CART,
+  MERGE_FROM_USER_CART
 } from './cart.types'
 
 import {
   generateCartAfterAddingItem,
-  generateCartAfterRemovingItem
+  generateCartAfterRemovingItem,
+  generateUserCartBeforeMerge
 } from './cart.utils'
 
 const initialState = {
@@ -27,7 +29,9 @@ export default (state = initialState, action) => {
     case CLEAR_ITEM_FROM_CART:
       return { ...state, cartItems: state.cartItems.filter(item => item._id !== action.payload._id) }
     case CLEAR_CART:
-      return state;
+      return { ...state, cartItems: [] };
+    case MERGE_FROM_USER_CART:
+      return { ...state, cartItems: generateUserCartBeforeMerge(state.cartItems, action.payload) }
     default:
       return state;
   }

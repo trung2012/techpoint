@@ -3,7 +3,8 @@ import {
   REMOVE_ITEM_FROM_CART,
   TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
-  CLEAR_CART
+  CLEAR_CART,
+  MERGE_FROM_USER_CART
 } from './cart.types'
 
 export const addItemToCart = item => ({
@@ -27,4 +28,9 @@ export const clearItemFromCart = item => ({
 
 export const clearCart = () => ({
   type: CLEAR_CART
+})
+
+export const mergeFromUserCart = cart => ({
+  type: MERGE_FROM_USER_CART,
+  payload: cart
 })

@@ -8,8 +8,10 @@ import {
   AUTH_ERROR,
   SIGN_OUT
 } from './user.types';
+
+import { mergeFromUserCart, clearCart } from '../cart/cart.actions';
 import axios from 'axios';
-import { getErrors } from '../error/error.actions';
+import { signInError, signUpError } from '../error/error.actions';
 import history from '../../history';
 
 export const signInStart = () => ({
@@ -46,7 +48,7 @@ export const signUpAsync = ({ displayName, email, password }) => dispatch => {
       history.push('/')
     })
     .catch(err => {
-      dispatch(getErrors(err.response.data, err.response.status))
+      dispatch(signUpError(err.response.data))
       dispatch({
         type: AUTH_ERROR
       })
@@ -66,10 +68,11 @@ export const signInAsync = ({ email, password }) => dispatch => {
   axios.post('/api/users/login', body, config)
     .then(res => {
       dispatch(signInSuccess(res.data))
+      dispatch(mergeFromUserCart(res.data.user.cart))
       history.push('/')
     })
     .catch(err => {
-      dispatch(getErrors(err.response.data))
+      dispatch(signInError(err.response.data))
       dispatch({
         type: AUTH_ERROR
       })
@@ -94,13 +97,13 @@ export const loadUser = () => (dispatch, getState) => {
       payload: res.data
     }))
     .catch(err => {
-      dispatch(getErrors(err.response.data));
       dispatch({
         type: AUTH_ERROR
       })
     })
 }
 
-export const signOut = () => ({
-  type: SIGN_OUT
-})
+export const signOut = () => dispatch => {
+  dispatch(clearCart());
+  dispatch({ type: SIGN_OUT });
+}

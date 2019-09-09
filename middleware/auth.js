@@ -7,9 +7,7 @@ const auth = async (req, res, next) => {
     const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, process.env.jwtSecret);
 
-    req.user = await User.findById(decoded.id).populate({
-      path: 'cart.item'
-    })
+    req.user = await User.findById(decoded.id)
     req.token = token;
     next();
   } catch (err) {

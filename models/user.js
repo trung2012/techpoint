@@ -24,10 +24,32 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   cart: [{
-    _id: false,
-    item: {
+    _id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Item'
+      required: true
+    },
+    categoryId: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String
+    },
+    price: {
+      type: Number
+    },
+    shipping: {
+      type: String
+    },
+    features: [String],
+    logo: {
+      type: String
+    },
+    imageUrl: {
+      type: String
+    },
+    imageUrlLarge: {
+      type: String
     },
     quantity: {
       type: Number
@@ -35,8 +57,8 @@ const userSchema = new mongoose.Schema({
   }]
 }, { id: false })
 
-userSchema.set('toObject', { virtuals: true })
-userSchema.set('toJSON', { virtuals: true })
+// userSchema.set('toObject', { virtuals: true })
+// userSchema.set('toJSON', { virtuals: true })
 
 userSchema.methods.toJSON = function () {
   const { _id, name, email, cart } = this;

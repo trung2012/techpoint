@@ -4,6 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal, selectCartShipping } from '../redux/cart/cart.selectors';
 import CheckoutItem from './checkout-item.component';
 import CustomButton from './custom-button.component';
+import StripeButton from './stripe-button.component';
 
 import './checkout.styles.scss';
 
@@ -18,7 +19,8 @@ const CheckOut = ({ cartItems, cartTotal, cartShipping, history }) => {
             <CustomButton buttonType='go-to-home' text='Continue Shopping' onClick={() => history.push('/')} />
           </>
           :
-          <>
+          <div className='checkout-details'>
+
             <div className='checkout-main-section'>
               <div className='checkout-header'>
                 <div className='header-section'>
@@ -37,6 +39,7 @@ const CheckOut = ({ cartItems, cartTotal, cartShipping, history }) => {
                   <span>Remove</span>
                 </div>
               </div>
+
               <div className='item-list'>
                 {
                   cartItems.map(item => {
@@ -44,19 +47,28 @@ const CheckOut = ({ cartItems, cartTotal, cartShipping, history }) => {
                   })
                 }
               </div>
-              <div className='checkout-totals'>
-                <div className='checkout-subtotal'>
-                  Subtotal: ${cartTotal === 0 ? 0 : cartTotal.toLocaleString('en-US')}
-                </div>
-                <div className='checkout-subtotal'>
-                  Shipping: ${cartShipping}
-                </div>
-                <div className='checkout-total'>
-                  Total: ${(cartTotal + cartShipping).toLocaleString('en-US')}
-                </div>
+            </div>
+
+            <div className='checkout-totals'>
+              <div className='checkout-subtotal'>
+                Subtotal: ${cartTotal === 0 ? 0 : cartTotal.toLocaleString('en-US')}
+              </div>
+              <div className='checkout-subtotal'>
+                Shipping: ${cartShipping}
+              </div>
+              <div className='checkout-total'>
+                Total: ${(cartTotal + cartShipping).toLocaleString('en-US')}
+              </div>
+              <div className='checkout-button'>
+                <StripeButton price={(cartTotal + cartShipping)} />
               </div>
             </div>
-          </>
+            <div className='test-warning'>
+              *Please use the following test credit card for payments*
+              <br />
+              4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+            </div>
+          </div>
       }
     </div>
   );
