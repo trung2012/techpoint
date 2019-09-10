@@ -2,7 +2,8 @@ import {
   SHOP_ERROR,
   SIGNIN_ERROR,
   SIGNUP_ERROR,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  CART_ERROR
 } from './error.types';
 
 export const shopError = message => ({
@@ -20,7 +21,11 @@ export const signUpError = message => ({
   payload: message
 })
 
+export const cartError = message => ({
+  type: CART_ERROR,
+  payload: message
+})
+
 export const clearErrors = () => ({
   type: CLEAR_ERRORS
 });
-

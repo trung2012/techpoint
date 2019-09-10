@@ -3,11 +3,12 @@
   justify-content: space-between;
   align-items: center;
   height: 8.5rem;
-  padding: 0 2rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
   position: relative;
   width: 100vw;
   background: #00283a;
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
 
   .logo {
     margin-left: 1rem;
@@ -84,7 +85,6 @@
       }
 
       .welcome-message {
-        transition: all .2s ease-out;
         &::after {
           display: none;
         }

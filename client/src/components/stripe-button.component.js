@@ -32,7 +32,7 @@ const StripeButton = ({ price }) => {
       name='TechPoint Ltd.'
       billingAddress
       shippingAddress
-      image='https://svgshare.com/i/CUz.svg'
+      image='https://i.ibb.co/82djTx2/iconmonstr-check-mark-1-32.png'
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel='Pay Now'

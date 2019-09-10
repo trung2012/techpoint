@@ -6,16 +6,45 @@ import {
   CLEAR_CART,
   MERGE_FROM_USER_CART
 } from './cart.types'
+import { cartError } from '../error/error.actions';
+import axios from 'axios';
 
-export const addItemToCart = item => ({
-  type: ADD_ITEM_TO_CART,
-  payload: item
-})
 
-export const removeItemFromCart = item => ({
-  type: REMOVE_ITEM_FROM_CART,
-  payload: item
-})
+export const addItemToCart = item => dispatch => {
+  dispatch({
+    type: ADD_ITEM_TO_CART,
+    payload: item
+  });
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  axios.post('/api/cart/add', JSON.stringify(item), config)
+    .catch(err => {
+      dispatch(cartError(err))
+    })
+}
+
+export const removeItemFromCart = item => dispatch => {
+  dispatch({
+    type: REMOVE_ITEM_FROM_CART,
+    payload: item
+  });
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  axios.post('/api/cart/remove', JSON.stringify(item), config)
+    .catch(err => {
+      dispatch(cartError(err))
+    })
+}
 
 export const toggleAddedToCart = () => ({
   type: TOGGLE_ADDED_TO_CART

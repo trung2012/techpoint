@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { selectCategory, selectIsCategoriesLoading } from '../redux/shop/shop.selectors';
 import ProductDisplayItem from './product-display-item.component';
@@ -7,6 +7,10 @@ import Spinner from './spinner.component';
 import './product-shop.styles.scss';
 
 const ProductShop = ({ isLoading, category }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     isLoading ? <Spinner /> :
       <div className='product-shop'>

@@ -3,12 +3,10 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  z-index: 1;
   background-color: #00283a;
   width: 100%;
   left: 0;
   visibility: hidden;
   transition: visibility 0s .2s;
   box-shadow: .8rem .8rem 1rem #5e5e5e;
-  margin-top: 2rem;
 }

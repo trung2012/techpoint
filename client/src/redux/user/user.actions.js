@@ -13,6 +13,7 @@ import { mergeFromUserCart, clearCart } from '../cart/cart.actions';
 import axios from 'axios';
 import { signInError, signUpError } from '../error/error.actions';
 import history from '../../history';
+import { cartError } from '../error/error.actions';
 
 export const signInStart = () => ({
   type: SIGN_IN_START
@@ -55,7 +56,7 @@ export const signUpAsync = ({ displayName, email, password }) => dispatch => {
     })
 }
 
-export const signInAsync = ({ email, password }) => dispatch => {
+export const signInAsync = ({ email, password }) => async (dispatch, getState) => {
   dispatch(signInStart());
 
   const config = {
@@ -65,18 +66,33 @@ export const signInAsync = ({ email, password }) => dispatch => {
   }
   const body = JSON.stringify({ email, password });
 
-  axios.post('/api/users/login', body, config)
-    .then(res => {
-      dispatch(signInSuccess(res.data))
-      dispatch(mergeFromUserCart(res.data.user.cart))
-      history.push('/')
+  try {
+    const loginResponse = await axios.post('/api/users/login', body, config)
+
+    dispatch(signInSuccess(loginResponse.data))
+    dispatch(mergeFromUserCart(loginResponse.data.user.cart))
+    history.push('/')
+  } catch (err) {
+    dispatch(signInError(err.response.data))
+    dispatch({
+      type: AUTH_ERROR
     })
-    .catch(err => {
-      dispatch(signInError(err.response.data))
-      dispatch({
-        type: AUTH_ERROR
-      })
-    })
+  }
+
+  try {
+    //Update User Cart
+    const token = getState().userReducer.token
+    const requestConfig = {
+      headers: {
+        Authorization: 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      },
+    }
+
+    await axios.post('/api/cart/replace', JSON.stringify(getState().cartReducer.cartItems), requestConfig);
+  } catch (err) {
+    dispatch(cartError(err.response.data));
+  }
 }
 
 export const loadUser = () => (dispatch, getState) => {
@@ -92,10 +108,12 @@ export const loadUser = () => (dispatch, getState) => {
   }
 
   axios.get('/api/users', requestConfig)
-    .then(res => dispatch({
-      type: LOAD_USER_SUCCESS,
-      payload: res.data
-    }))
+    .then(res => {
+      dispatch({
+        type: LOAD_USER_SUCCESS,
+        payload: res.data
+      });
+    })
     .catch(err => {
       dispatch({
         type: AUTH_ERROR

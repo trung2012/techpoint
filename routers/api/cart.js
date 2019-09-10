@@ -56,4 +56,18 @@ router.put('/remove', auth, async (req, res) => {
   }
 })
 
+router.post('/replace', auth, async (req, res) => {
+  const { user } = req;
+
+  try {
+    user.cart = req.body;
+    await user.save();
+    return res.status(200).send(user.cart);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Something went wrong')
+  }
+
+})
+
 module.exports = router;
