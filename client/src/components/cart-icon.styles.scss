@@ -31,3 +31,26 @@
 .shopping-icon {
   stroke: #fff;
 }
+
+
+@media only screen and (max-width: 1000px) {
+  .cart-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    transform: translate(2rem, -.2rem);
+
+    .item-count {
+      top: -.7rem;
+      right: -1.1rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      text-align: center;
+      font-size: .5rem;
+      padding-top: 0;
+      border-radius: 50%;
+      background: rgb(255, 0, 0);
+      color: white;
+    }
+  }  
+}

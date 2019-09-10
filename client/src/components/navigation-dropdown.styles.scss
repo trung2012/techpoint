@@ -10,3 +10,15 @@
   transition: visibility 0s .2s;
   box-shadow: .8rem .8rem 1rem #5e5e5e;
 }
+
+@media only screen and (max-width: 1000px) {
+  .navigation-dropdown {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #00283a;
+    box-shadow: .8rem .8rem 1rem #5e5e5e;
+    z-index: 1;
+  }
+}

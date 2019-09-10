@@ -84,8 +84,7 @@
         font-size: 2rem;
       }
     }
-  } 
-  
+  }   
 }
 
 @keyframes slideUp {
@@ -96,4 +95,94 @@
   100% {
     transform: translateY(0)
   }
+}
+
+@media only screen and (max-width: 1000px) {
+  .product-details-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: unset;
+  
+    .product-details {
+      width: 100%;
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 4rem 0;
+  
+      .product-image-container {
+        width: 20rem;
+        justify-self: center;
+        align-self: center;
+        margin-right: 0;
+
+        .product-image {
+          width: 100%;
+        }
+      }
+  
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        box-shadow: none;
+        
+        .info-title {
+          text-align: center;
+          padding: 1rem 1rem;
+          font-size: 1.5rem;
+          background: #00283a;
+          color: white;
+        }
+        
+        .product-info-sections {
+  
+          .info-items {
+            margin-top: 1rem;
+            margin-bottom: .5rem;
+            margin-left: 1rem;
+            padding-top: .5rem;
+            padding-left: 1rem;
+    
+            .info-logo-container {
+              margin-bottom: 2rem;
+            }
+  
+            .features {
+              font-size: 1.3rem;
+              margin-bottom: 3rem;
+            }
+    
+            .actions {
+              display: flex;
+              min-width: 20rem;
+
+              .custom-button {
+                width: 11rem;
+                height: 3rem;;
+                margin-top: 2rem;
+                margin-right: 1rem;
+              }        
+            }
+    
+            li {
+              list-style: none;
+              margin: .6rem 0;
+            }                      
+          }    
+        }           
+      }
+  
+      .item-price {
+        padding-top: 1rem;
+        padding-right: 1.4rem;
+        font-size: 2.5rem;
+  
+        .price-sub {
+          font-size: 1.2rem;
+        }
+      }
+    }   
+  } 
 }

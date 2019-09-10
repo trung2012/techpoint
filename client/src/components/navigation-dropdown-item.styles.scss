@@ -35,3 +35,35 @@
   }
   
 }
+
+@media only screen and (max-width: 1000px) {
+  .navigation-dropdown-item {
+    padding: 0;
+    margin-top: .5rem;
+    margin-bottom: 0.3rem;
+  
+    .image-container {
+      width: 9rem;
+      height: 6rem;
+      margin-bottom: 1.5rem;
+      text-align: center;    
+      border: .1rem solid #c9c9c9;
+      border-radius: .2rem;
+  
+      .category-image {
+        max-height: 100%;
+        width: auto;
+        
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  
+    .category-title {
+      font-size: 1rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }    
+  }
+}

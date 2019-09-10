@@ -17,7 +17,7 @@ const ProductItem = ({ item, addItemToCart, addedToCart, toggleAddedToCart, hist
     addItemToCart(item);
     setTimeout(() => {
       toggleAddedToCart()
-    }, 400);
+    }, 250);
   }
 
   return (
@@ -27,7 +27,7 @@ const ProductItem = ({ item, addItemToCart, addedToCart, toggleAddedToCart, hist
       </div>
       {
         addedToCart ?
-          <CustomButton text='Added to cart!' buttonType='added-to-cart' />
+          <CustomButton text='Added to cart!' disabled buttonType='added-to-cart' />
           : <CustomButton text='Add to cart' buttonType='add-to-cart' onClick={handleButtonClick} />
       }
       <div className='item-info-list'>

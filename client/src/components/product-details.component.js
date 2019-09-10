@@ -34,7 +34,7 @@ const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, added
     <div className='product-details-page'>
       <div className='product-details'>
         <div className='product-image-container'>
-          <img alt='product' src={imageUrlLarge} />
+          <img alt='product' src={imageUrlLarge} className='product-image' />
         </div>
         <div className='product-info'>
           <h2 className='info-title'>{title}</h2>

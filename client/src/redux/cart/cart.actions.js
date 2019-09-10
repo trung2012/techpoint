@@ -16,19 +16,14 @@ export const addItemToCart = item => (dispatch, getState) => {
     payload: item
   });
 
-  const token = getState().userReducer.token
+  const { isSignedIn, config } = cartUpdateConfig(getState);
 
-  const config = {
-    headers: {
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'application/json'
-    }
+  if (isSignedIn) {
+    axios.post('/api/cart/add', JSON.stringify(item), config)
+      .catch(err => {
+        dispatch(cartError(err))
+      })
   }
-
-  axios.post('/api/cart/add', JSON.stringify(item), config)
-    .catch(err => {
-      dispatch(cartError(err))
-    })
 }
 
 export const removeItemFromCart = item => (dispatch, getState) => {
@@ -37,29 +32,35 @@ export const removeItemFromCart = item => (dispatch, getState) => {
     payload: item
   });
 
-  const token = getState().userReducer.token
+  const { isSignedIn, config } = cartUpdateConfig(getState);
 
-  const config = {
-    headers: {
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'application/json'
-    }
+  if (isSignedIn) {
+    axios.put('/api/cart/remove', JSON.stringify(item), config)
+      .catch(err => {
+        dispatch(cartError(err))
+      })
   }
-
-  axios.put('/api/cart/remove', JSON.stringify(item), config)
-    .catch(err => {
-      dispatch(cartError(err))
-    })
 }
 
 export const toggleAddedToCart = () => ({
   type: TOGGLE_ADDED_TO_CART
 })
 
-export const clearItemFromCart = item => ({
-  type: CLEAR_ITEM_FROM_CART,
-  payload: item
-})
+export const clearItemFromCart = item => (dispatch, getState) => {
+  dispatch({
+    type: CLEAR_ITEM_FROM_CART,
+    payload: item
+  })
+
+  const { isSignedIn, config } = cartUpdateConfig(getState);
+
+  if (isSignedIn) {
+    axios.put('/api/cart/clear', JSON.stringify(item), config)
+      .catch(err => {
+        dispatch(cartError(err))
+      })
+  }
+}
 
 export const clearCart = () => ({
   type: CLEAR_CART
@@ -69,3 +70,16 @@ export const mergeFromUserCart = cart => ({
   type: MERGE_FROM_USER_CART,
   payload: cart
 })
+
+export const cartUpdateConfig = getState => {
+  const isSignedIn = getState().userReducer.isSignedIn;
+  const token = getState().userReducer.token;
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return { isSignedIn, config }
+}

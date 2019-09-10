@@ -53,3 +53,41 @@
   }
 }
 
+@media only screen and (max-width: 1000px) {
+  .sign-in-page {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      padding: 2rem 1rem;
+      border: unset;
+      box-shadow: unset;
+  
+      .sign-in-form {
+        width: 25rem;
+      }
+  
+      .sign-in-title {
+        align-self: center;
+        margin-bottom: 6rem;
+        color: #00283a;
+      }
+  
+      .buttons-container {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+  
+      .custom-button {
+        height: 4rem;
+        width: 20rem;
+        font-size: 1.3rem;
+      }  
+    }
+  } 
+}

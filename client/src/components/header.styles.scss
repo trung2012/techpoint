@@ -113,3 +113,50 @@
   64%  { transform: scale(1,1)      translateY(0); }
   100% { transform: scale(1,1)      translateY(0); }
 }
+
+@media only screen and (max-width: 1000px) {
+  .header {
+    height: 6rem;
+    padding: 0 1rem;
+    width: 100vw;
+    background: #00283a;
+    margin-bottom: 0;
+  
+    .logo {
+      width: 3rem;
+      margin-left: .5rem;
+    }
+
+    .home {
+      display: none;
+    }
+  
+    .navigation-links {
+      margin-top: 0;
+      margin-right: 5rem;
+  
+      .navigation-item {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 .8rem;
+        
+        &::after {
+          display: none;
+        }
+      }
+    
+      .signed-in {  
+        .sign-out {
+          position: unset;
+          display: block;
+          opacity: 1;
+        }
+
+        .welcome-message {
+          display: none
+        }
+      }
+    }    
+  }
+}

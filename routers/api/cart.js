@@ -62,6 +62,26 @@ router.put('/remove', auth, async (req, res) => {
   }
 })
 
+router.put('/clear', auth, async (req, res) => {
+  try {
+    const { user } = req;
+
+    const existingItem = user.cart.find(item => item._id.toString() === req.body._id)
+
+    if (existingItem) {
+      user.cart = user.cart.filter(item => item._id.toString() !== req.body._id)
+      await user.save();
+      return res.status(200).send(user.cart)
+    }
+    else {
+      res.status(404).send('Item not found');
+    }
+
+  } catch (err) {
+    res.status(500).send('Something went wrong')
+  }
+})
+
 router.post('/replace', auth, async (req, res) => {
   const { user } = req;
 
