@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
     case SIGN_UP_SUCCESS:
     case LOAD_USER_SUCCESS:
       window.localStorage.setItem('token', action.payload.token);
-      return { ...state, user: action.payload.user, isSignedIn: true, isUserLoading: false }
+      return { ...state, user: action.payload.user, token: action.payload.token, isSignedIn: true, isUserLoading: false }
     case AUTH_ERROR:
     case SIGN_OUT:
       window.localStorage.removeItem('token');

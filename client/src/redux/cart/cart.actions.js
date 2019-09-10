@@ -10,14 +10,17 @@ import { cartError } from '../error/error.actions';
 import axios from 'axios';
 
 
-export const addItemToCart = item => dispatch => {
+export const addItemToCart = item => (dispatch, getState) => {
   dispatch({
     type: ADD_ITEM_TO_CART,
     payload: item
   });
 
+  const token = getState().userReducer.token
+
   const config = {
     headers: {
+      Authorization: 'Bearer ' + token,
       'Content-Type': 'application/json'
     }
   }
@@ -28,19 +31,22 @@ export const addItemToCart = item => dispatch => {
     })
 }
 
-export const removeItemFromCart = item => dispatch => {
+export const removeItemFromCart = item => (dispatch, getState) => {
   dispatch({
     type: REMOVE_ITEM_FROM_CART,
     payload: item
   });
 
+  const token = getState().userReducer.token
+
   const config = {
     headers: {
+      Authorization: 'Bearer ' + token,
       'Content-Type': 'application/json'
     }
   }
 
-  axios.post('/api/cart/remove', JSON.stringify(item), config)
+  axios.put('/api/cart/remove', JSON.stringify(item), config)
     .catch(err => {
       dispatch(cartError(err))
     })

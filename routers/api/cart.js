@@ -16,13 +16,15 @@ router.post('/add', auth, async (req, res) => {
           : item
       })
       user.cart = newCart;
+      await user.save();
+      return res.status(201).send(user.cart)
+
     } else {
       newItem = { ...req.body, quantity: 1 }
       user.cart = [...user.cart, newItem]
+      await user.save()
+      return res.status(201).send(user.cart)
     }
-
-    await user.save()
-    return res.status(201).send(user.cart)
   } catch (err) {
     res.status(500).send('Something went wrong')
   }
@@ -36,7 +38,9 @@ router.put('/remove', auth, async (req, res) => {
 
     if (existingItem) {
       if (existingItem.quantity === 1) {
-        user.cart = user.cart.filter(item => item._id !== req.body._id)
+        user.cart = user.cart.filter(item => item._id.toString() !== req.body._id)
+        await user.save();
+        return res.status(200).send(user.cart)
       }
 
       const newCart = user.cart.map(item => {
@@ -45,6 +49,8 @@ router.put('/remove', auth, async (req, res) => {
           : item
       })
       user.cart = newCart;
+      await user.save();
+      return res.status(200).send(user.cart)
     } else {
       res.status(404).send('Item not found');
     }
