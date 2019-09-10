@@ -1,5 +1,6 @@
 const express = require('express');
 const router = new express.Router();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 router.post('/', (req, res) => {
