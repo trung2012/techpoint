@@ -64,17 +64,20 @@
         color: #fff;
       }
       
-      &:hover {     
-        .navigation-dropdown {
-          visibility: visible;
-          transition-delay: 0s;
-        }
-      }
+      // &:hover {     
+      //   .navigation-dropdown {
+      //     visibility: visible;
+      //     transition-delay: 0s;
+      //   }
+      // }
     }    
 
     .signed-in {
       display: flex;    
       position: relative;
+      &::after {
+        display: none;
+      }
 
       .sign-out {
         display: block;
@@ -83,15 +86,7 @@
         opacity: 0;
         z-index: 1;
         transition: transform .4s ease-out;
-        &::after {
-          display: none;
-        }
-      }
-
-      .welcome-message {
-        &::after {
-          display: none;
-        }
+        
       }
       
       &:hover {

@@ -48,3 +48,8 @@ export const selectShopError = createSelector(
   [selectShop],
   state => state.errorMessage
 );
+
+export const selectIsNavigationDropdownHidden = createSelector(
+  [selectShop],
+  state => state.isNavigationDropdownHidden
+);
