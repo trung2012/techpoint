@@ -44,3 +44,9 @@
     @include shrinkLabel();
   }
 }
+
+@media only screen and (max-width: 667px) {
+  .form-input-label {
+    font-size: 1.1rem;
+  }
+}

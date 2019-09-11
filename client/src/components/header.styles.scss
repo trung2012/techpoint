@@ -125,6 +125,7 @@
     .logo {
       width: 3rem;
       margin-left: .5rem;
+      margin-top: .3rem;
     }
 
     .home {
@@ -133,19 +134,28 @@
   
     .navigation-links {
       margin-top: 0;
-      margin-right: 5rem;
-  
+      margin-right: 4rem;
+      
       .navigation-item {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 600;
         color: #fff;
-        margin: 0 .8rem;
+        margin: 0 .5rem;
         
         &::after {
           display: none;
         }
       }
     
+      .shop {
+        &:hover, &:active {     
+          .navigation-dropdown {
+            visibility: visible;
+            transition-delay: 0s;
+          }
+        }
+      }
+
       .signed-in {  
         .sign-out {
           position: unset;

@@ -88,21 +88,8 @@
       width: 10rem;
     }
   
-    .item-image-container {
-      max-width: 15rem;
-      margin-bottom: .5rem;
-      .item-image {
-        width: 100%;
-  
-        &:hover {
-          transform: none;
-        }
-      }   
-    }
-  
     .item-info-list {
       width: 100%;
-      align-items: center;
   
       .item-info-item {
         font-size: 1rem;

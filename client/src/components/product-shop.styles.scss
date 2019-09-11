@@ -57,6 +57,17 @@
         justify-content: flex-start;
         padding: 0 .3rem;
         
+        .item-image-container {
+          max-width: 12rem;
+          margin-bottom: .5rem;
+          .item-image {
+            width: 100%;
+      
+            &:hover {
+              transform: none;
+            }
+          }   
+        }
         .custom-button {
           margin: 1rem 0;
         }
