@@ -99,9 +99,6 @@
 
 @media only screen and (max-width: 667px) {
   .product-details-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: unset;
   
     .product-details {
@@ -124,6 +121,7 @@
   
       .product-info {
         display: flex;
+        width: 100vw;
         flex-direction: column;
         border: none;
         box-shadow: none;
@@ -138,8 +136,9 @@
         }
         
         .product-info-sections {
-  
+          padding: 1rem .5rem;
           .info-items {
+            width: 70%;
             margin-top: 1rem;
             margin-bottom: .5rem;
             margin-left: 1rem;
@@ -151,8 +150,8 @@
             }
   
             .features {
-              font-size: 1.3rem;
-              margin-bottom: 3rem;
+              font-size: 1.2rem;
+              margin-bottom: 2.5rem;
             }
     
             .actions {
@@ -160,25 +159,23 @@
               min-width: 20rem;
 
               .custom-button {
-                width: 11rem;
-                height: 3rem;;
+                width: 8rem;
+                height: 2.8rem;
+                font-size: .7rem;
                 margin-top: 2rem;
                 margin-right: 1rem;
               }        
-            }
-    
-            li {
-              list-style: none;
-              margin: .6rem 0;
-            }                      
+            }                  
           }    
         }           
       }
   
       .item-price {
-        padding-top: 1rem;
-        padding-right: 1.4rem;
-        font-size: 2.5rem;
+        position: absolute;
+        right: 1rem;
+        padding-top: 2rem;
+        padding-right: 1rem;
+        font-size: 2.4rem;
   
         .price-sub {
           font-size: 1.2rem;
