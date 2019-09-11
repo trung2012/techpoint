@@ -6,3 +6,5 @@ export const LOAD_USER_START = 'LOAD_USER_START';
 export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const SIGN_OUT = 'SIGN_OUT';
+export const SIGNIN_ERROR = 'SIGNIN_ERROR';
+export const SIGNUP_ERROR = 'SIGNUP_ERROR';

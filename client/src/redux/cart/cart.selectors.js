@@ -33,3 +33,8 @@ export const selectCartShipping = createSelector(
     return acc + convertShippingToFloat(item.shipping)
   }, 0)
 )
+
+export const selectCartError = createSelector(
+  [selectCartReducer],
+  state => state.errorMessage
+);

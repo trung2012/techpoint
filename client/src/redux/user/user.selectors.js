@@ -16,3 +16,13 @@ export const selectIsUserLoading = createSelector(
   [selectUserState],
   state => state.isUserLoading
 )
+
+export const selectSignInError = createSelector(
+  [selectUserState],
+  state => state.signInError
+);
+
+export const selectSignUpError = createSelector(
+  [selectUserState],
+  state => state.signUpError
+);

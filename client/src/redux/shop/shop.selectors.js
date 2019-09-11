@@ -43,3 +43,8 @@ export const selectItemById = id => createSelector(
   [selectShopItems],
   items => items ? items.find(item => item._id === id) : undefined
 )
+
+export const selectShopError = createSelector(
+  [selectShop],
+  state => state.errorMessage
+);

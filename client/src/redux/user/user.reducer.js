@@ -6,14 +6,19 @@ import {
   LOAD_USER_START,
   LOAD_USER_SUCCESS,
   AUTH_ERROR,
-  SIGN_OUT
+  SIGN_OUT,
+  SIGNIN_ERROR,
+  SIGNUP_ERROR
 } from './user.types';
+import { CLEAR_ERRORS } from '../error/error.types';
 
 const initialState = {
   user: null,
   isSignedIn: false,
   isUserLoading: false,
-  token: window.localStorage.getItem('token')
+  token: window.localStorage.getItem('token'),
+  signInError: null,
+  signUpError: null
 }
 
 export default (state = initialState, action) => {
@@ -31,6 +36,16 @@ export default (state = initialState, action) => {
     case SIGN_OUT:
       window.localStorage.removeItem('token');
       return { ...state, user: null, isSignedIn: false, isUserLoading: false }
+    case SIGNIN_ERROR:
+      return { ...state, signInError: action.payload }
+    case SIGNUP_ERROR:
+      return { ...state, signUpError: action.payload }
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        signInError: null,
+        signUpError: null
+      }
     default:
       return state;
   }

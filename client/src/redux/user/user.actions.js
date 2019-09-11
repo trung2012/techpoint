@@ -6,14 +6,15 @@ import {
   LOAD_USER_START,
   LOAD_USER_SUCCESS,
   AUTH_ERROR,
-  SIGN_OUT
+  SIGN_OUT,
+  SIGNIN_ERROR,
+  SIGNUP_ERROR
 } from './user.types';
 
 import { mergeFromUserCart, clearCart } from '../cart/cart.actions';
 import axios from 'axios';
-import { signInError, signUpError } from '../error/error.actions';
 import history from '../../history';
-import { cartError } from '../error/error.actions';
+import { cartError } from '../cart/cart.actions';
 
 export const signInStart = () => ({
   type: SIGN_IN_START
@@ -125,3 +126,13 @@ export const signOut = () => dispatch => {
   dispatch(clearCart());
   dispatch({ type: SIGN_OUT });
 }
+
+export const signInError = message => ({
+  type: SIGNIN_ERROR,
+  payload: message
+})
+
+export const signUpError = message => ({
+  type: SIGNUP_ERROR,
+  payload: message
+})

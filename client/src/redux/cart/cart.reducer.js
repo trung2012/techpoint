@@ -4,8 +4,10 @@ import {
   TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART,
-  MERGE_FROM_USER_CART
+  MERGE_FROM_USER_CART,
+  CART_ERROR
 } from './cart.types'
+import { CLEAR_ERRORS } from '../error/error.types';
 
 import {
   generateCartAfterAddingItem,
@@ -16,6 +18,7 @@ import {
 const initialState = {
   cartItems: [],
   addedToCart: false,
+  errorMessage: null
 }
 
 export default (state = initialState, action) => {
@@ -32,6 +35,10 @@ export default (state = initialState, action) => {
       return { ...state, cartItems: [] };
     case MERGE_FROM_USER_CART:
       return { ...state, cartItems: generateUserCartBeforeMerge(state.cartItems, action.payload) }
+    case CART_ERROR:
+      return { ...state, errorMessage: action.payload }
+    case CLEAR_ERRORS:
+      return { ...state, errorMessage: null }
     default:
       return state;
   }

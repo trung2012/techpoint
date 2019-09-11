@@ -4,10 +4,15 @@ import {
   TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART,
-  MERGE_FROM_USER_CART
+  MERGE_FROM_USER_CART,
+  CART_ERROR
 } from './cart.types'
-import { cartError } from '../error/error.actions';
 import axios from 'axios';
+
+export const cartError = message => ({
+  type: CART_ERROR,
+  payload: message
+})
 
 
 export const addItemToCart = item => (dispatch, getState) => {

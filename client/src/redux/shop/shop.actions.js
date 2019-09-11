@@ -2,10 +2,16 @@ import axios from 'axios';
 
 import {
   FETCH_SHOP_DATA_START,
-  FETCH_SHOP_DATA_SUCCESS
+  FETCH_SHOP_DATA_SUCCESS,
+  SHOP_ERROR
 } from './shop.types'
 
-import { shopError } from '../error/error.actions';
+import { clearErrors } from '../error/error.actions';
+
+export const shopError = message => ({
+  type: SHOP_ERROR,
+  payload: message
+});
 
 export const fetchShopDataStart = () => ({
   type: FETCH_SHOP_DATA_START
@@ -19,7 +25,10 @@ export const fetchShopDataSuccess = (data) => ({
 export const fetchShopData = () => dispatch => {
   dispatch(fetchShopDataStart());
   axios.get('/api/categories')
-    .then(res => dispatch(fetchShopDataSuccess(res.data)))
+    .then(res => {
+      dispatch(clearErrors())
+      dispatch(fetchShopDataSuccess(res.data))
+    })
     .catch(err => dispatch(shopError(err.response.data)))
 }
 

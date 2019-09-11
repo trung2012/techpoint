@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { signUpAsync } from '../redux/user/user.actions';
+import { clearErrors } from '../redux/error/error.actions';
+import { selectSignUpError } from '../redux/user/user.selectors';
 
 import FormInput from './form-input.component';
 import CustomButton from './custom-button.component';
+import ErrorDisplay from './error-display.component';
 
 import './signup.styles.scss';
 
-const SignUp = ({ history, signUpAsync }) => {
+const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
   const [userCredentials, setUserCredentials] = useState({ displayName: '', email: '', password: '', confirmPassword: '' })
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { email, password, confirmPassword, displayName } = userCredentials;
@@ -22,7 +25,10 @@ const SignUp = ({ history, signUpAsync }) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match. Please try again!')
+      return setErrorMessage('Passwords do not match. Please try again!')
+    }
+    if (password.length <= 6) {
+      return setErrorMessage('Passwords need to be more than 6 characters long')
     }
 
     signUpAsync({ displayName, email, password });
@@ -32,7 +38,10 @@ const SignUp = ({ history, signUpAsync }) => {
     <div className='sign-up-page'>
       <div className='content-container'>
         <h1 className='sign-up-title'>Sign up with email</h1>
-        <div className='error-message'>{errorMessage}</div>
+        <ErrorDisplay text={errorMessage} />
+        {
+          signUpError ? <ErrorDisplay text={signUpError} /> : null
+        }
         <form className='sign-up-form' onSubmit={handleSubmit}>
           <FormInput
             name='displayName'
@@ -41,6 +50,7 @@ const SignUp = ({ history, signUpAsync }) => {
             required
             handleChange={handleChange}
             label='Display Name'
+            onFocus={() => clearErrors()}
           />
           <FormInput
             name='email'
@@ -49,6 +59,7 @@ const SignUp = ({ history, signUpAsync }) => {
             required
             handleChange={handleChange}
             label='email'
+            onFocus={() => clearErrors()}
           />
           <FormInput
             name='password'
@@ -57,6 +68,7 @@ const SignUp = ({ history, signUpAsync }) => {
             required
             handleChange={handleChange}
             label='password'
+            onFocus={() => clearErrors()}
           />
           <FormInput
             name='confirmPassword'
@@ -65,6 +77,7 @@ const SignUp = ({ history, signUpAsync }) => {
             required
             handleChange={handleChange}
             label='Confirm password'
+            onFocus={() => clearErrors()}
           />
           <div className='buttons-container'>
             <CustomButton text='Sign Up' />
@@ -79,4 +92,8 @@ const SignUp = ({ history, signUpAsync }) => {
   );
 }
 
-export default connect(null, { signUpAsync })(SignUp);
+const mapStateToProps = state => ({
+  signUpError: selectSignUpError(state)
+})
+
+export default connect(mapStateToProps, { signUpAsync, clearErrors })(SignUp);

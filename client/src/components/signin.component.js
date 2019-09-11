@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+
+
 import { signInAsync } from '../redux/user/user.actions';
 import { clearErrors } from '../redux/error/error.actions';
-import { selectIsSignedIn } from '../redux/user/user.selectors';
+import { selectIsSignedIn, selectSignInError } from '../redux/user/user.selectors';
 import FormInput from './form-input.component';
 import CustomButton from './custom-button.component';
+import ErrorDisplay from './error-display.component';
 
 import './signin.styles.scss';
 
-const SignIn = ({ history, signIn, clearErrors, isSignedIn }) => {
+const SignIn = ({ history, signIn, clearErrors, isSignedIn, signInError }) => {
   const [userCredentials, setUserCredentials] = useState({ email: '', password: '' })
   const { email, password } = userCredentials;
-
-  useEffect(() => {
-    clearErrors();
-  }, [clearErrors])
 
   const handleChange = event => {
     const { value, name } = event.target;
@@ -29,7 +28,7 @@ const SignIn = ({ history, signIn, clearErrors, isSignedIn }) => {
         history.push('/')
       }
     } catch (err) {
-      console.log(err)
+
     }
   }
 
@@ -37,6 +36,7 @@ const SignIn = ({ history, signIn, clearErrors, isSignedIn }) => {
     <div className='sign-in-page'>
       <div className='content-container'>
         <h1 className='sign-in-title'>Sign in</h1>
+        <ErrorDisplay text={signInError} />
         <form className='sign-in-form' onSubmit={handleSubmit}>
           <FormInput
             name='email'
@@ -45,6 +45,7 @@ const SignIn = ({ history, signIn, clearErrors, isSignedIn }) => {
             required
             handleChange={handleChange}
             label='email'
+            onFocus={() => clearErrors()}
           />
           <FormInput
             name='password'
@@ -53,6 +54,7 @@ const SignIn = ({ history, signIn, clearErrors, isSignedIn }) => {
             required
             handleChange={handleChange}
             label='password'
+            onFocus={() => clearErrors()}
           />
           <div className='buttons-container'>
             <CustomButton text='Sign in' />
@@ -73,7 +75,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
-  isSignedIn: selectIsSignedIn(state)
+  isSignedIn: selectIsSignedIn(state),
+  signInError: selectSignInError(state)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
