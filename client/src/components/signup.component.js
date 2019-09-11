@@ -34,6 +34,11 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
     signUpAsync({ displayName, email, password });
   }
 
+  const onFocus = () => {
+    clearErrors();
+    setErrorMessage(null);
+  }
+
   return (
     <div className='sign-up-page'>
       <div className='content-container'>
@@ -50,7 +55,7 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
             required
             handleChange={handleChange}
             label='Display Name'
-            onFocus={() => clearErrors()}
+            onFocus={onFocus}
           />
           <FormInput
             name='email'
@@ -59,7 +64,7 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
             required
             handleChange={handleChange}
             label='email'
-            onFocus={() => clearErrors()}
+            onFocus={onFocus}
           />
           <FormInput
             name='password'
@@ -68,7 +73,7 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
             required
             handleChange={handleChange}
             label='password'
-            onFocus={() => clearErrors()}
+            onFocus={onFocus}
           />
           <FormInput
             name='confirmPassword'
@@ -77,7 +82,7 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
             required
             handleChange={handleChange}
             label='Confirm password'
-            onFocus={() => clearErrors()}
+            onFocus={onFocus}
           />
           <div className='buttons-container'>
             <CustomButton text='Sign Up' />

@@ -5,6 +5,8 @@ import { convertPriceToString } from '../utils/helper';
 import { addItemToCart, toggleAddedToCart } from '../redux/cart/cart.actions';
 import { selectItemById } from '../redux/shop/shop.selectors';
 import { selectAddedToCart } from '../redux/cart/cart.selectors'
+import unavailable from '../assets/unavailable-image.jpg';
+
 import './product-details.styles.scss';
 
 const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, addedToCart }) => {
@@ -34,7 +36,7 @@ const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, added
     <div className='product-details-page'>
       <div className='product-details'>
         <div className='product-image-container'>
-          <img alt='product' src={imageUrlLarge} className='product-image' />
+          <img alt='product' src={imageUrlLarge || unavailable} className='product-image' />
         </div>
         <div className='product-info'>
           <h2 className='info-title'>{title}</h2>

@@ -1,22 +1,25 @@
 .product-details-page {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-right: 4rem;
   margin-left: 4rem;
-  margin-top: 15rem;
+  margin-top: 11rem;
+  margin-bottom: 4rem;
 
   .product-details {
-    width: 80%;
-    display: grid;
-    align-items: stretch;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 4rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
 
     .product-image-container {
       justify-self: center;
       align-self: center;
-      margin-right: 2rem;
+      margin-right: 4rem;
+
+      .product-image {
+        max-width: 55rem;
+      }
     }
 
     .product-info {
@@ -28,7 +31,7 @@
       
       .info-title {
         text-align: center;
-        padding: 1rem 4rem;
+        padding: 1.5rem 4rem;
         font-size: 2rem;
         background: #00283a;
         color: white;
@@ -39,6 +42,7 @@
         padding: 2rem 0;
 
         .info-items {
+          width: 70%;
           margin-top: 2rem;
           margin-bottom: 1rem;
           margin-left: 2rem;
@@ -77,6 +81,8 @@
 
     .item-price {
       display: flex;
+      width: 30%;
+      justify-content: flex-end;
       align-items: flex-start;
       padding-top: 4rem;
       padding-right: 4rem;
