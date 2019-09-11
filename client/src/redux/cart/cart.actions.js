@@ -5,7 +5,8 @@ import {
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART,
   MERGE_FROM_USER_CART,
-  CART_ERROR
+  CART_ERROR,
+  UPDATE_ITEM_QUANTITY
 } from './cart.types'
 import axios from 'axios';
 
@@ -67,13 +68,34 @@ export const clearItemFromCart = item => (dispatch, getState) => {
   }
 }
 
-export const clearCart = () => ({
-  type: CLEAR_CART
-})
-
 export const mergeFromUserCart = cart => ({
   type: MERGE_FROM_USER_CART,
   payload: cart
+})
+
+export const updateItemQuantity = (itemId, quantity) => (dispatch, getState) => {
+  dispatch({
+    type: UPDATE_ITEM_QUANTITY,
+    payload: { itemId, quantity }
+  });
+
+  const body = {
+    itemId,
+    quantity
+  }
+
+  const { isSignedIn, config } = cartUpdateConfig(getState);
+
+  if (isSignedIn) {
+    axios.put('/api/cart/quantity/update', JSON.stringify(body), config)
+      .catch(err => {
+        dispatch(cartError(err))
+      })
+  }
+}
+
+export const clearCart = () => ({
+  type: CLEAR_CART
 })
 
 export const cartUpdateConfig = getState => {

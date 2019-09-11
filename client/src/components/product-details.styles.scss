@@ -1,6 +1,6 @@
 .product-details-page {
   display: flex;
-  justify-content: space-between;
+  justify-content: stretch;
   align-items: center;
   margin-right: 4rem;
   margin-left: 4rem;
@@ -8,17 +8,17 @@
   margin-bottom: 4rem;
 
   .product-details {
-    width: 90%;
+    padding: 1rem 6rem;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 
     .product-image-container {
       justify-self: center;
       align-self: center;
-      margin-right: 4rem;
 
       .product-image {
-        max-width: 55rem;
+        max-width: 50rem;
       }
     }
 
@@ -105,7 +105,7 @@
   }
 }
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 720px) {
   .product-details-page {
     margin: unset;
   
