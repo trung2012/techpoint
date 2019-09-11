@@ -5,8 +5,8 @@
   width: 6rem;
   height: 6rem;
   position: relative;
-  margin-left: 2.5rem;
   transform: translate( -.4rem,-1.6rem);
+  z-index: 1;
 
   &:hover {
     background: #013953;
@@ -37,8 +37,8 @@
   .cart-icon {
     width: 2rem;
     height: 2rem;
-    margin-left: .4rem;
-    transform: translate(2rem, -.2rem);
+    transform: translateY(-.3rem);
+    margin-left: .8rem;
 
     .item-count {
       top: -.7rem;

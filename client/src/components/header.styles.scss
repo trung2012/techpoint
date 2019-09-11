@@ -31,6 +31,10 @@
       margin: 0 2.5rem;
       cursor: pointer;
 
+      &:last-child {
+        margin-right: 0;
+      }
+
       a[disabled] {
         pointer-events: none;
       }
@@ -124,7 +128,7 @@
   
     .logo {
       width: 3rem;
-      margin-left: .5rem;
+      margin-left: .3rem;
       margin-top: .3rem;
     }
 
@@ -134,13 +138,13 @@
   
     .navigation-links {
       margin-top: 0;
-      margin-right: 4rem;
+      margin-right: .8rem;
       
       .navigation-item {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 600;
         color: #fff;
-        margin: 0 .9rem;
+        margin: 0 .8rem;
         
         &::after {
           display: none;

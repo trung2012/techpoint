@@ -27,7 +27,7 @@ const Header = ({ categories, currentUser, signOut }) => {
         <Link to='/contact' className='navigation-item contact'>Contact</Link>
         {
           currentUser ?
-            <div className='signed-in'>
+            <div className='navigation-item signed-in'>
               <div className='navigation-item welcome-message'>
                 Hello, {currentUser.name}
               </div>
@@ -35,7 +35,7 @@ const Header = ({ categories, currentUser, signOut }) => {
             </div>
             : <Link to='/signin' className='navigation-item sign-in'>Sign In</Link>
         }
-        <Link to='/checkout'>
+        <Link className='navigation-item' to='/checkout'>
           <CartIcon />
         </Link>
       </div>
