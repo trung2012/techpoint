@@ -52,7 +52,7 @@
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 600px) {
   .custom-button {
   height: 2.5rem;
   min-width: 9rem;
@@ -62,9 +62,9 @@
   font-size: .8rem;
 
   &:hover {
-    color: unset;
-    background: unset;
-    border: unset;
+    color: #fff;
+    background: #002333;
+    border: #002333;
   }
 }
 

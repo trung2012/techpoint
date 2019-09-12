@@ -45,3 +45,9 @@ export const convertPriceToString = price => {
 
   return { priceMain, priceSub }
 }
+
+export const convertFeatureToSubstrings = feature => {
+  let [featureName, featureDescription] = feature.split(':')
+
+  return { featureName, featureDescription }
+}

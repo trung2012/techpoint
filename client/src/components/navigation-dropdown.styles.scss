@@ -23,7 +23,18 @@
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1184px) {
+  .navigation-dropdown {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    background-color: #00283a;
+    box-shadow: .8rem .8rem 1rem #5e5e5e;
+    z-index: 1;
+    margin-top: .8rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .navigation-dropdown {
     margin-top: 1rem;
     padding: 1rem 0;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import CustomButton from './custom-button.component';
-import { convertPriceToString } from '../utils/helper';
+import { convertPriceToString, convertFeatureToSubstrings } from '../utils/helper';
 import { addItemToCart, toggleAddedToCart } from '../redux/cart/cart.actions';
 import { selectItemById } from '../redux/shop/shop.selectors';
 import { selectAddedToCart } from '../redux/cart/cart.selectors'
@@ -50,23 +50,31 @@ const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, added
               <div className='info-item features'>
                 <ul>
                   {
-                    features ? features.map((feature, i) => <li className='feature' key={i}>{feature}</li>)
+                    features ?
+                      features.map((feature, i) => {
+                        const { featureName, featureDescription } = convertFeatureToSubstrings(feature);
+                        return (
+                          <li className='feature' key={i}>
+                            <strong className='feature-name'>{featureName}:</strong>
+                            <span>{featureDescription}</span>
+                          </li>)
+                      })
                       : null
                   }
                 </ul>
-              </div>
-              <div className='info-item actions'>
-                {
-                  addedToCart ? <CustomButton text='Added to cart!' buttonType='added-to-cart' />
-                    : <CustomButton text='Add to cart' buttonType='add-to-cart' onClick={handleButtonClick} />
-                }
-                <CustomButton text='Continue Shopping' buttonType='go-to-home' onClick={() => history.goBack()} />
               </div>
             </div>
             <div className='item-price'>
               <span className='price-main'>${priceMain}</span>
               <span className='price-sub'>.{priceSub}</span>
             </div>
+          </div>
+          <div className='info-item actions'>
+            {
+              addedToCart ? <CustomButton text='Added to cart!' buttonType='added-to-cart' />
+                : <CustomButton text='Add to cart' buttonType='add-to-cart' onClick={handleButtonClick} />
+            }
+            <CustomButton text='Continue Shopping' buttonType='go-to-home' onClick={() => history.goBack()} />
           </div>
         </div>
       </div>

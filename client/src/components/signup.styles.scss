@@ -5,7 +5,7 @@
   .content-container {
     display: flex;
     flex-direction: column;
-    width: 28%;
+    width: 32%;
     align-items: center;
     padding: 3rem 0;
     margin-bottom: 3rem;
@@ -20,6 +20,7 @@
       font-size: 3rem;
       align-self: center;
       margin-bottom: 4rem;
+      margin-top: 1rem;
     }
 
     .buttons-container {
@@ -54,7 +55,53 @@
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width:1184px) {
+  .sign-up-page {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      width: 38%;
+      align-items: center;
+      padding: 2rem 1rem;
+  
+      .sign-up-form {
+        width: 25rem;
+      }
+  
+      .sign-up-title {
+        align-self: center;
+        margin-bottom: 2rem;
+        color: #00283a;
+        font-size: 2.5rem;
+      }
+  
+      .buttons-container {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+  
+      .custom-button {
+        height: 4rem;
+        width: 20rem;
+        font-size: 1.3rem;
+      }  
+    }
+  } 
+}
+
+@media only screen and (max-width:1000px) {
+  .sign-up-page {
+    .content-container {
+      width: 45%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .sign-up-page {
     display: flex;
     justify-content: center;

@@ -32,13 +32,19 @@
   stroke: #fff;
 }
 
+@media only screen and (max-width: 1184px) {
+  .cart-icon {
+    transform: translateY(-1.8rem);
+  }
+}
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 600px) {
   .cart-icon {
     width: 2rem;
     height: 2rem;
     transform: translateY(-.3rem);
     margin-left: .8rem;
+    margin-right: 1.6rem;
 
     .item-count {
       top: -.7rem;
