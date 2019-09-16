@@ -33,3 +33,15 @@ export const generateUserCartBeforeMerge = (stateCart, userCart) => {
 
   return [...userCart, ...stateCart];
 }
+
+export const findAndUpdateItemInCart = (cart, itemId, quantity) => {
+  if (quantity === 0) {
+    return cart.filter(item => item._id !== itemId)
+  }
+  return cart.map(item => {
+    if (item._id === itemId) {
+      return { ...item, quantity: quantity }
+    }
+    return item;
+  })
+}

@@ -96,4 +96,27 @@ router.post('/replace', auth, async (req, res) => {
 
 })
 
+router.put('/quantity/update', auth, async (req, res) => {
+  const { user } = req;
+
+  try {
+    if (req.body.quantity === 0) {
+      user.cart = user.cart.filter(item => item._id.toString() !== req.body.itemId)
+    }
+    else {
+      user.cart.forEach(item => {
+        if (item._id.toString() === req.body.itemId) {
+          item.quantity = req.body.quantity;
+        }
+      })
+    }
+
+    await user.save();
+    return res.status(200).send(user.cart);
+  } catch (err) {
+    res.status(500).send('Something went wrong')
+  }
+
+})
+
 module.exports = router;

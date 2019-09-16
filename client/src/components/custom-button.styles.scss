@@ -52,7 +52,7 @@
   }
 }
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 600px) {
   .custom-button {
   height: 2.5rem;
   min-width: 9rem;
@@ -62,16 +62,16 @@
   font-size: .8rem;
 
   &:hover {
-    color: unset;
-    background: unset;
-    border: unset;
+    color: #fff;
+    background: #002333;
+    border: #002333;
   }
 }
 
 .added-to-cart {
   font-weight: 600;
-  background: #fff;
-  color: #002333;
+  background: #002333;
+  color: #fff;
   border: .1rem solid #002333;
 
   &:hover {
@@ -91,9 +91,9 @@
   margin-top: 3rem;
 
   &:hover {
-    background: #fff;
-    color: #ff5c5c;
-    border: .1rem solid #ff7171;    
+    background: #ff5c5c;
+    color: #fff;
+    border: .1rem solid #fff;    
   }
 }
 }

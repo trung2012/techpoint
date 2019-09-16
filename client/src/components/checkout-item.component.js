@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { addItemToCart, removeItemFromCart, clearItemFromCart } from '../redux/cart/cart.actions';
+import { addItemToCart, removeItemFromCart, clearItemFromCart, updateItemQuantity } from '../redux/cart/cart.actions';
 
 import { limitString } from '../utils/helper';
 import './checkout-item.styles.scss';
 
-const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCart }) => {
-  const { imageUrl, title, price, quantity } = item;
+const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCart, updateItemQuantity }) => {
+  const { _id, imageUrl, title, price, quantity } = item;
+  const [isSelectingQuantity, setIsSelectingQuantity] = useState(false);
+  const [itemQuantity, setItemQuantity] = useState(quantity);
+
+  const updateQuantity = event => {
+    event.preventDefault();
+
+    updateItemQuantity(_id, itemQuantity);
+
+    setIsSelectingQuantity(false);
+  }
 
   return (
     <div className='checkout-item'>
@@ -20,9 +30,22 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
         {limitString(title)}
       </div>
       <div className='item-info quantity'>
-        <span className='text-item reduce-quantity' onClick={() => removeItemFromCart(item)}>&#9664;</span>
-        <span className='text-item'>{quantity}</span>
-        <span className='text-item increase-quantity' onClick={() => addItemToCart(item)}>&#9658;</span>
+
+        {
+          isSelectingQuantity ?
+            <form onSubmit={updateQuantity}>
+              <input className='quantity-input' value={isNaN(itemQuantity) ? '' : itemQuantity} onChange={e => setItemQuantity(parseInt(e.target.value))} />
+              <button>Update</button>
+            </form>
+            :
+            <>
+              <span className='text-item reduce-quantity' onClick={() => { removeItemFromCart(item); setItemQuantity(itemQuantity - 1) }}>&#8882;</span>
+              <span className='text-item' onClick={() => setIsSelectingQuantity(true)}>
+                {itemQuantity}
+              </span>
+              <span className='text-item increase-quantity' onClick={() => { addItemToCart(item); setItemQuantity(itemQuantity + 1) }}>&#8883;</span>
+            </>
+        }
       </div>
       <div className='item-info price'>
         ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
@@ -35,7 +58,8 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
 const mapDispatchToProps = dispatch => ({
   addItemToCart: item => dispatch(addItemToCart(item)),
   removeItemFromCart: item => dispatch(removeItemFromCart(item)),
-  clearItemFromCart: item => dispatch(clearItemFromCart(item))
+  clearItemFromCart: item => dispatch(clearItemFromCart(item)),
+  updateItemQuantity: (itemId, quantity) => dispatch(updateItemQuantity(itemId, quantity))
 })
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);

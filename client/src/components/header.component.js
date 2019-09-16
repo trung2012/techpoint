@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { signOut } from '../redux/user/user.actions';
+import { toggleDropDown } from '../redux/shop/shop.actions';
 import { selectCurrentUser } from '../redux/user/user.selectors';
-import { selectCategoriesInfo } from '../redux/shop/shop.selectors';
+import { selectCategoriesInfo, selectIsNavigationDropdownHidden } from '../redux/shop/shop.selectors';
 import NavigationDropdown from './navigation-dropdown.component';
 import CartIcon from './cart-icon.component';
 
 import logo from '../assets/logo.png';
 import './header.styles.scss';
 
-const Header = ({ categories, currentUser, signOut }) => {
+const Header = ({ categories, currentUser, signOut, isDropdownHidden, toggleDropDown }) => {
   return (
     <div className='header'>
       <Link to='/' className='logo-container'>
@@ -20,22 +21,24 @@ const Header = ({ categories, currentUser, signOut }) => {
       </Link>
       <div className='navigation-links'>
         <Link to='/' className='navigation-item home'>Home</Link>
-        <div className='navigation-item shop'>
+        <div className='navigation-item shop' onClick={toggleDropDown}>
           <Link to='/' disabled className='shop-link'>Shop</Link>
-          <NavigationDropdown categories={categories} />
+          {
+            isDropdownHidden ? null : <NavigationDropdown categories={categories} toggleDropDown={toggleDropDown} />
+          }
         </div>
         <Link to='/contact' className='navigation-item contact'>Contact</Link>
         {
           currentUser ?
-            <div className='signed-in'>
-              <div className='navigation-item welcome-message'>
+            <div className='navigation-item signed-in'>
+              <div className='welcome-message'>
                 Hello, {currentUser.name}
               </div>
-              <div className='navigation-item sign-out' onClick={() => signOut()}>Sign Out</div>
+              <div className='sign-out' onClick={() => signOut()}>Sign Out</div>
             </div>
             : <Link to='/signin' className='navigation-item sign-in'>Sign In</Link>
         }
-        <Link to='/checkout'>
+        <Link className='navigation-item' to='/checkout'>
           <CartIcon />
         </Link>
       </div>
@@ -45,7 +48,8 @@ const Header = ({ categories, currentUser, signOut }) => {
 
 const mapStateToProps = createStructuredSelector({
   categories: selectCategoriesInfo,
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  isDropdownHidden: selectIsNavigationDropdownHidden
 })
 
-export default withRouter(connect(mapStateToProps, { signOut })(Header));
+export default withRouter(connect(mapStateToProps, { signOut, toggleDropDown })(Header));

@@ -9,7 +9,19 @@
   }
 }
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 1184px) {
+  .product-overview {
+    padding: 2rem 1.5rem;
+  
+    .page-title {
+      font-size: 2.7rem;
+      color: #00283a;
+      margin: 4rem 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .product-overview {
     padding: 2rem 1.5rem;
   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { fetchShopData } from './redux/shop/shop.actions';
@@ -34,6 +34,7 @@ class App extends React.Component {
           <Route exect path='/signin' component={SignIn} />
           <Route exect path='/signup' component={SignUp} />
           <Route path='/products/:id' component={ProductDetails} />
+          <Redirect to='/' />
         </Switch>
       </div>
     );

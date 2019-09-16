@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
   FETCH_SHOP_DATA_START,
   FETCH_SHOP_DATA_SUCCESS,
-  SHOP_ERROR
+  SHOP_ERROR,
+  TOGGLE_DROPDOWN
 } from './shop.types'
 
 import { clearErrors } from '../error/error.actions';
@@ -20,6 +21,10 @@ export const fetchShopDataStart = () => ({
 export const fetchShopDataSuccess = (data) => ({
   type: FETCH_SHOP_DATA_SUCCESS,
   payload: data
+})
+
+export const toggleDropDown = () => ({
+  type: TOGGLE_DROPDOWN
 })
 
 export const fetchShopData = () => dispatch => {

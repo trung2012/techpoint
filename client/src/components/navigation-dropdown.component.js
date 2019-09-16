@@ -6,6 +6,7 @@ import './navigation-dropdown.styles.scss';
 const NavigationDropdown = ({ categories }) => {
   return (
     <div className='navigation-dropdown'>
+      <div className='overlay'></div>
       {
         categories ?
           categories.map(({ _id, ...otherProps }) => {

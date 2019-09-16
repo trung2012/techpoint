@@ -1,34 +1,54 @@
 .product-details-page {
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
-  margin-right: 4rem;
-  margin-left: 4rem;
-  margin-top: 15rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: 10rem;
+  margin-bottom: 4rem;
 
   .product-details {
-    width: 80%;
-    display: grid;
-    align-items: stretch;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 4rem;
+    padding: 1rem 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 
     .product-image-container {
       justify-self: center;
       align-self: center;
-      margin-right: 2rem;
+      flex: 1;
+
+      .product-image {
+        max-width: 40rem;
+      }
     }
 
     .product-info {
       display: flex;
+      flex: 1.8;
       flex-direction: column;
       border: .1rem solid #00283a;
       box-shadow: 1rem 1rem 2rem #d8d8d8;
       animation: slideUp .3s ease-out;
       
+      .actions {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 3rem;
+        padding: 0 3rem;
+
+        .custom-button {
+          width: 23rem;
+          height: 4.5rem;
+          margin-top: 2rem;
+          margin-left: 3rem;
+          margin-right: 1rem;
+        }        
+      }
+      
       .info-title {
         text-align: center;
-        padding: 1rem 4rem;
+        padding: 1.5rem 4rem;
         font-size: 2rem;
         background: #00283a;
         color: white;
@@ -39,6 +59,7 @@
         padding: 2rem 0;
 
         .info-items {
+          width: 70%;
           margin-top: 2rem;
           margin-bottom: 1rem;
           margin-left: 2rem;
@@ -54,17 +75,9 @@
             
             .feature {
               line-height: 1.5;
+              letter-spacing: .1rem;
             }
-          }
-  
-          .actions {
-            min-width: 44rem;
-            .custom-button {
-              width: 20rem;
-              margin-top: 2rem;
-              margin-right: 2rem;
-            }        
-          }
+          }         
   
           li {
             list-style: none;
@@ -77,8 +90,10 @@
 
     .item-price {
       display: flex;
+      width: 30%;
+      justify-content: flex-end;
       align-items: flex-start;
-      padding-top: 4rem;
+      padding-top: 2rem;
       padding-right: 4rem;
       font-size: 4.5rem;
 
@@ -99,7 +114,70 @@
   }
 }
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 1184px) {
+  .product-details-page {
+    .product-details {
+      .product-image-container {
+        .product-image {
+          max-width: 28rem;
+        }
+      }
+
+      .item-price {
+        font-size: 3.6rem;
+  
+        .price-sub {
+          font-size: 1.7rem;
+        }
+      }
+
+      .product-info {
+        
+        .actions {
+          padding: unset;
+  
+          .custom-button {
+            min-width: 6rem;
+            width: 14rem;
+            height: 3rem;
+            font-size: 1.1rem;
+            margin-top: unset;
+            margin-left: 4rem;
+            margin-right: unset;
+          }        
+        }
+        
+        .info-title {
+          padding: 1.3rem 2rem;
+          font-size: 1.8rem;
+        }
+        
+        .product-info-sections {
+          padding: 1rem 0;
+  
+          .info-items {
+            width: 70%;
+            margin-top: 1.5rem;
+            margin-left: .5rem;
+            padding-top: 1rem;
+            padding-left: 4rem;
+    
+            .info-logo-container {
+              margin-bottom: 2rem;
+            }
+  
+            .features {
+              margin-bottom: 3rem;              
+            }      
+            
+          }    
+        }           
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
   .product-details-page {
     margin: unset;
   
@@ -111,78 +189,47 @@
       grid-gap: 4rem 0;
   
       .product-image-container {
-        width: 20rem;
-        justify-self: center;
-        align-self: center;
-        margin-right: 0;
+        width: 25rem;
 
         .product-image {
-          width: 100%;
+          max-width: 100%;
         }
       }
   
       .product-info {
-        display: flex;
         width: 100vw;
-        flex-direction: column;
         border: none;
-        box-shadow: none;
-        animation: none;
-        
-        .info-title {
-          text-align: center;
-          padding: 1rem 1rem;
-          font-size: 1.5rem;
-          background: #00283a;
-          color: white;
-        }
         
         .product-info-sections {
-          padding: 1rem .5rem;
           .info-items {
-            width: 70%;
-            margin-top: 1rem;
-            margin-bottom: .5rem;
-            margin-left: 1rem;
-            padding-top: .5rem;
-            padding-left: 1rem;
     
-            .info-logo-container {
-              margin-bottom: 2rem;
+            .item-price {
+              position: absolute;
+              right: 1rem;
+              padding-top: 2rem;
+              padding-right: 1rem;
+              font-size: 2.4rem;
+        
+              .price-sub {
+                font-size: 1.2rem;
+              }
             }
-  
-            .features {
-              font-size: 1.2rem;
-              margin-bottom: 2.5rem;
-            }
-    
-            .actions {
-              display: flex;
-              min-width: 20rem;
-
-              .custom-button {
-                width: 8rem;
-                height: 2.8rem;
-                font-size: .7rem;
-                margin-top: 2rem;
-                margin-right: 1rem;
-              }        
-            }                  
           }    
         }           
       }
-  
-      .item-price {
-        position: absolute;
-        right: 1rem;
-        padding-top: 2rem;
-        padding-right: 1rem;
-        font-size: 2.4rem;
-  
-        .price-sub {
-          font-size: 1.2rem;
-        }
+      .actions {
+        display: flex;
+        min-width: 20rem;
+
+        .custom-button {
+          width: 8rem;
+          height: 2.8rem;
+          font-size: 1rem;
+          margin-top: 2rem;
+          margin-right: 1rem;
+        }        
       }
+      
     }   
   } 
 }

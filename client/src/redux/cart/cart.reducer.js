@@ -5,14 +5,16 @@ import {
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART,
   MERGE_FROM_USER_CART,
-  CART_ERROR
+  CART_ERROR,
+  UPDATE_ITEM_QUANTITY
 } from './cart.types'
 import { CLEAR_ERRORS } from '../error/error.types';
 
 import {
   generateCartAfterAddingItem,
   generateCartAfterRemovingItem,
-  generateUserCartBeforeMerge
+  generateUserCartBeforeMerge,
+  findAndUpdateItemInCart
 } from './cart.utils'
 
 const initialState = {
@@ -35,6 +37,8 @@ export default (state = initialState, action) => {
       return { ...state, cartItems: [] };
     case MERGE_FROM_USER_CART:
       return { ...state, cartItems: generateUserCartBeforeMerge(state.cartItems, action.payload) }
+    case UPDATE_ITEM_QUANTITY:
+      return { ...state, cartItems: findAndUpdateItemInCart(state.cartItems, action.payload.itemId, action.payload.quantity) }
     case CART_ERROR:
       return { ...state, errorMessage: action.payload }
     case CLEAR_ERRORS:
