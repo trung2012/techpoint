@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
   try {
     const existingUser = await User.findOne({ email })
     if (existingUser) {
-      return res.status(400).send('Invalid Credentials')
+      return res.status(400).send('User already exists')
     }
 
     const newUser = new User({
@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
     const existingUser = await User.findOne({ email })
 
     if (!existingUser) {
-      return res.status(404).send('User does not exist');
+      return res.status(404).send('Invalid credentials');
     }
 
     const isMatch = await bcrypt.compare(password, existingUser.password)
