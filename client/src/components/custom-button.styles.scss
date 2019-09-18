@@ -65,6 +65,7 @@
     color: #fff;
     background: #002333;
     border: #002333;
+    outline: 0;
   }
 }
 
@@ -78,6 +79,7 @@
     color: unset;
     background: unset;
     border: unset;
+    outline: 0;
   }
 }
 
@@ -93,7 +95,8 @@
   &:hover {
     background: #ff5c5c;
     color: #fff;
-    border: .1rem solid #fff;    
+    border: .1rem solid #fff;
+    outline: 0;  
   }
 }
 }
