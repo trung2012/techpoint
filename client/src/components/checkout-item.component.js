@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { addItemToCart, removeItemFromCart, clearItemFromCart, updateItemQuantity } from '../redux/cart/cart.actions';
 
 import { limitString } from '../utils/helper';
 import './checkout-item.styles.scss';
 
-const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCart, updateItemQuantity }) => {
+const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCart, updateItemQuantity, history }) => {
   const { _id, imageUrl, title, price, quantity } = item;
   const [isSelectingQuantity, setIsSelectingQuantity] = useState(false);
   const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -21,7 +22,7 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
 
   return (
     <div className='checkout-item'>
-      <div className='item-info image'>
+      <div className='item-info image' onClick={() => history.push(`/products/${_id}`)}>
         <div className='image-container'>
           <img alt='item' src={imageUrl} className='item-image' />
         </div>
@@ -62,4 +63,6 @@ const mapDispatchToProps = dispatch => ({
   updateItemQuantity: (itemId, quantity) => dispatch(updateItemQuantity(itemId, quantity))
 })
 
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default compose(
+  connect(null, mapDispatchToProps),
+  withRouter)(CheckoutItem);
