@@ -1,7 +1,6 @@
 import {
   ADD_ITEM_TO_CART,
   REMOVE_ITEM_FROM_CART,
-  TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART,
   MERGE_FROM_USER_CART,
@@ -19,14 +18,11 @@ import {
 
 const initialState = {
   cartItems: [],
-  addedToCart: false,
   errorMessage: null
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_ADDED_TO_CART:
-      return { ...state, addedToCart: !state.addedToCart }
     case ADD_ITEM_TO_CART:
       return { ...state, cartItems: generateCartAfterAddingItem(state.cartItems, action.payload) }
     case REMOVE_ITEM_FROM_CART:

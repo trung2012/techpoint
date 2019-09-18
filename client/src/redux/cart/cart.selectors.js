@@ -22,11 +22,6 @@ export const selectCartTotal = createSelector(
   }, 0)
 )
 
-export const selectAddedToCart = createSelector(
-  [selectCartReducer],
-  cart => cart.addedToCart
-)
-
 export const selectCartShipping = createSelector(
   [selectCartItems],
   items => items.reduce((acc, item) => {

@@ -1,7 +1,6 @@
 import {
   ADD_ITEM_TO_CART,
   REMOVE_ITEM_FROM_CART,
-  TOGGLE_ADDED_TO_CART,
   CLEAR_ITEM_FROM_CART,
   CLEAR_CART,
   MERGE_FROM_USER_CART,
@@ -47,10 +46,6 @@ export const removeItemFromCart = item => (dispatch, getState) => {
       })
   }
 }
-
-export const toggleAddedToCart = () => ({
-  type: TOGGLE_ADDED_TO_CART
-})
 
 export const clearItemFromCart = item => (dispatch, getState) => {
   dispatch({

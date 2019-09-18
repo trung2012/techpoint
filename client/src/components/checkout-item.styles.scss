@@ -1,55 +1,53 @@
 .checkout-item {
   width: 100%;
   display: flex;
+  align-items: stretch;
+  margin-top: 2rem;
 
   .item-info {
-    width: 24%;
-    text-align: left;
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-
-    &:first-child {
-      width: 21%;
-      padding-top: 0;
-    }
-
-    &:last-child {
-      width: 8%;
-      transform: translateX(2rem);
-    } 
+    width: 20%;
+    text-align: center;
   }
 
+  .image {
+    display: flex;
+    justify-content: center;
+  }
   .image-container {
-    width: 65%;
+    width: 70%;
 
     .item-image {
       max-width: 100%;
-      transform: translateX(rem);
     }
   }
 
   .description {
     font-weight: 600;
-    transform: translateX(-2rem);
   }
 
   .quantity {
     display: flex;
-    transform: translate(.9rem, -.4rem);
+    justify-content: center;
     
     form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      width: 30%;
-      padding-left: 2rem;
+      width: 60%;
       
       input {
-        text-align: center;
         width: 3rem;
-        margin-bottom: .6rem;
+        text-align: center;
+        padding: .2rem .4rem;
+        margin-bottom: .7rem;
       }
 
       button {
-        padding: .2rem .1rem;
+        font-size: 1.4rem;
+        padding: .5rem .4rem;
+        color: white;
+        background-color: #00283ad5;
       }
     }
 
@@ -90,167 +88,89 @@
     .remove {
       padding-top: 2.5rem;
     }
-  
 }
 
-@media only screen and (max-width: 1184px) {
+@media only screen and (max-width: 960px) {
   .checkout-item {
-    width: 100%;
-    display: flex;  
-  
-    .item-info {
-      font-size: 1.6rem;
-      width: 20%;
-      text-align: left;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-  
-      &:first-child {
-        width: 20%;
-        padding-top: 0;
-      }
-  
-      &:last-child {
-        width: 20%;
-        transform: translateX(-17%);
-        text-align: right;
-      } 
-    }
-  
-    .image-container {
-      width: 50%;
-  
-      .item-image {
-        max-width: 100%;
-        transform: none;
-      }
-    }
-  
-    .description {
-      padding-top: 0;
-      font-weight: 600;
-      transform: translateX(-7%);
-    }
+    font-size: 1.45rem;
   
     .quantity {
-      transform: translateX(33%);
       
       form {
-        width: 6rem;
-        padding: 0;
-
-        input {
-          width: 2rem;
-        }
-
+        width: 60%;
+  
         button {
-          font-size: 1.3rem;
-          width: 6rem;
+          font-size: 1.1rem;
         }
       }
-
+  
       .text-item {
-        padding: 0 .4rem;
-        font-size: 1.7rem;
+        font-size: 1.8rem;
+        padding: 0 .5rem;
       }
     }
-    
-    .price {
-      font-weight: 600;
-      letter-spacing: .05rem;
-      transform: translateX(11%);
-    }
+      .description,
+      .quantity,
+      .price,
+      .remove {
+        padding-top: 2.2rem;
+      }
+  }  
+}
+
+
+@media only screen and (max-width: 600px) {
+  .checkout-item {
+    font-size: 1.1rem;
   
-    .remove {
-      color: red;
-    }
+    .quantity {
+      
+      form {
+        width: 60%;
   
-    .quantity,
-    .price,
-    .remove {
-      padding-top: unset;
-      text-align: center;
+        button {
+          font-size: 1.1rem;
+        }
+      }
+  
+      .text-item {
+        font-size: 1.4rem;
+        padding: 0 .4rem;
+      }
     }
-  } 
+      .description,
+      .quantity,
+      .price,
+      .remove {
+        padding-top: .8rem;
+      }
+  }  
 }
 
 @media only screen and (max-width: 600px) {
   .checkout-item {
-    width: 100%;
-    display: flex;  
-  
-    .item-info {
-      font-size: 1rem;
-      width: 20%;
-      text-align: left;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-  
-      &:first-child {
-        width: 20%;
-        padding-top: 0;
-      }
-  
-      &:last-child {
-        width: 20%;
-        transform: translateX(-16%);
-        text-align: right;
-      } 
-    }
-  
-    .image-container {
-      width: 70%;
-  
-      .item-image {
-        max-width: 100%;
-        transform: none;
-      }
-    }
-  
-    .description {
-      padding-top: 0;
-      font-weight: 600;
-      transform: translateX(6%);
-    }
+    font-size: .8rem;
   
     .quantity {
-      transform: translateX(17%);
       
       form {
-        width: 6rem;
-        padding: 0;
-
-        input {
-          width: 2rem;
-        }
-
+        width: 60%;
+  
         button {
-          font-size: 1rem;
-          width: 5rem;
+          font-size: 1.1rem;
         }
       }
-
+  
       .text-item {
-        padding: 0 .3rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
+        padding: 0 .4rem;
       }
     }
-    
-    .price {
-      font-weight: 600;
-      letter-spacing: .05rem;
-      transform: none;
-    }
-  
-    .remove {
-      color: red;
-    }
-  
-    .quantity,
-    .price,
-    .remove {
-      padding-top: unset;
-      text-align: center;
-    }
-  } 
+      .description,
+      .quantity,
+      .price,
+      .remove {
+        padding-top: .1rem;
+      }
+  }  
 }

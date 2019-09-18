@@ -2,25 +2,19 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import CustomButton from './custom-button.component';
 import { convertPriceToString, convertFeatureToSubstrings } from '../utils/helper';
-import { addItemToCart, toggleAddedToCart } from '../redux/cart/cart.actions';
+import { addItemToCart } from '../redux/cart/cart.actions';
+import { useAddToCart } from '../hooks/useAddToCart';
 import { selectItemById } from '../redux/shop/shop.selectors';
-import { selectAddedToCart } from '../redux/cart/cart.selectors'
 import unavailable from '../assets/unavailable-image.jpg';
 
 import './product-details.styles.scss';
 
-const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, addedToCart }) => {
+const ProductDetails = ({ item, history, addItemToCart }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [])
 
-  const handleButtonClick = () => {
-    toggleAddedToCart();
-    addItemToCart(item);
-    setTimeout(() => {
-      toggleAddedToCart()
-    }, 300);
-  }
+  const { addedToCart, handleButtonClick } = useAddToCart({ addItemToCart }, item);
 
   const {
     title = 'Loading',
@@ -69,7 +63,7 @@ const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, added
               <span className='price-sub'>.{priceSub}</span>
             </div>
           </div>
-          <div className='info-item actions'>
+          <div className='actions'>
             {
               addedToCart ? <CustomButton text='Added to cart!' buttonType='added-to-cart' />
                 : <CustomButton text='Add to cart' buttonType='add-to-cart' onClick={handleButtonClick} />
@@ -83,13 +77,11 @@ const ProductDetails = ({ item, history, addItemToCart, toggleAddedToCart, added
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  item: selectItemById(ownProps.match.params.id)(state),
-  addedToCart: selectAddedToCart(state)
+  item: selectItemById(ownProps.match.params.id)(state)
 })
 
 const mapDispatchToProps = dispatch => ({
-  addItemToCart: item => dispatch(addItemToCart(item)),
-  toggleAddedToCart: () => dispatch(toggleAddedToCart())
+  addItemToCart: item => dispatch(addItemToCart(item))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

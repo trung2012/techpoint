@@ -10,7 +10,7 @@
   margin-top: .8rem;
   flex-wrap: wrap;
   z-index: 1;
-
+  
   .overlay {
     position: fixed;
     top: 0;
@@ -23,7 +23,7 @@
   }
 }
 
-@media only screen and (max-width: 1184px) {
+@media only screen and (max-width: 960px) {
   .navigation-dropdown {
     margin-top: 1rem;
     padding: 1rem 0;

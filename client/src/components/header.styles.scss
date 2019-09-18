@@ -113,11 +113,11 @@
   100% { transform: scale(1,1)      translateY(0); }
 }
 
-@media only screen and (max-width: 1184px) {
+@media only screen and (max-width: 960px) {
   .header {    
     height: 7rem;
     padding-top: .5rem;
-    margin-bottom: 0;
+    margin-bottom: 4rem;
     justify-content: space-between;
 
     .logo {
@@ -156,7 +156,7 @@
     padding: 0 1rem;
     width: 100vw;
     background: #00283a;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     justify-content: space-between;
   
     .logo {

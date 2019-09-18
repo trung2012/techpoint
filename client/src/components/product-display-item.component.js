@@ -3,22 +3,16 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { selectAddedToCart } from '../redux/cart/cart.selectors';
-import { addItemToCart, toggleAddedToCart } from '../redux/cart/cart.actions';
+import { useAddToCart } from '../hooks/useAddToCart';
+import { addItemToCart } from '../redux/cart/cart.actions';
 import CustomButton from './custom-button.component';
 import { limitString } from '../utils/helper';
 import './product-display-item.styles.scss';
 
-const ProductItem = ({ item, addItemToCart, addedToCart, toggleAddedToCart, history }) => {
-  const { _id, title, price, shipping, imageUrl } = item;
+const ProductItem = ({ item, addItemToCart, history }) => {
+  const { addedToCart, handleButtonClick } = useAddToCart({ addItemToCart }, item);
 
-  const handleButtonClick = () => {
-    toggleAddedToCart();
-    addItemToCart(item);
-    setTimeout(() => {
-      toggleAddedToCart()
-    }, 250);
-  }
+  const { _id, title, price, shipping, imageUrl } = item;
 
   return (
     <div className='product-display-item'>
@@ -39,17 +33,12 @@ const ProductItem = ({ item, addItemToCart, addedToCart, toggleAddedToCart, hist
   )
 }
 
-const mapStateToProps = state => ({
-  addedToCart: selectAddedToCart(state)
-})
-
 const mapDispatchToProps = dispatch => ({
-  addItemToCart: item => dispatch(addItemToCart(item)),
-  toggleAddedToCart: () => dispatch(toggleAddedToCart())
+  addItemToCart: item => dispatch(addItemToCart(item))
 })
 
 const ProductDisplayItem = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(null, mapDispatchToProps),
   withRouter)(ProductItem)
 
 export default ProductDisplayItem;

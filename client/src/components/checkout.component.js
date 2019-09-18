@@ -38,6 +38,7 @@ const CheckOut = ({ cartItems, cartTotal, cartShipping, history }) => {
                 <div className='header-section'>
                   <span>Remove</span>
                 </div>
+                <div className='header-border'></div>
               </div>
 
               <div className='item-list'>
