@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
     const user = await newUser.save()
 
     jwt.sign({ id: user._id }, process.env.jwtSecret, (err, token) => {
-      if (err) throw error;
+      if (err) throw Error;
       res.status(201).json({
         token,
         user: {
@@ -50,7 +50,6 @@ router.post('/', async (req, res) => {
       })
     })
   } catch (err) {
-    console.log(err)
     res.status(500).send('Something went wrong')
   }
 })
