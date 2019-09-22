@@ -6,14 +6,14 @@
   .content-container {
     display: flex;
     flex-direction: column;
-    width: 32%;
+    width: 27%;
     align-items: center;
     padding: 3rem 0;
     border: .1rem solid #00283a;
     box-shadow: 1rem 1rem 2rem #c5c5c5;
 
     .sign-in-form {
-      width: 32rem;
+      width: 70%;
     }
 
     .sign-in-title {
@@ -54,7 +54,7 @@
   }
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1280px) {
   .sign-in-page {
     display: flex;
     justify-content: center;
@@ -66,11 +66,7 @@
       width: 35%;
       align-items: center;
       padding: 2rem 1rem;
-  
-      .sign-in-form {
-        width: 28rem;
-      }
-  
+    
       .sign-in-title {
         align-self: center;
         margin-bottom: 6rem;
@@ -113,11 +109,8 @@
       padding: 2rem 1rem;
       border: unset;
       box-shadow: unset;
-  
-      .sign-in-form {
-        width: 22rem;
-      }
-  
+
+
       .sign-in-title {
         align-self: center;
         margin-bottom: 6rem;

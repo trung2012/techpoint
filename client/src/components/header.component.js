@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { signOut } from '../redux/user/user.actions';
-import { toggleDropDown } from '../redux/shop/shop.actions';
+import { toggleDropDown } from '../redux/navigation/navigation.actions';
 import { selectCurrentUser } from '../redux/user/user.selectors';
-import { selectCategoriesInfo, selectIsNavigationDropdownHidden } from '../redux/shop/shop.selectors';
+import { selectCategoriesInfo } from '../redux/shop/shop.selectors';
+import { selectIsNavigationDropdownHidden } from '../redux/navigation/navigation.selectors';
 import NavigationDropdown from './navigation-dropdown.component';
 import CartIcon from './cart-icon.component';
 

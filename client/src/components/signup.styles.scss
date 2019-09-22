@@ -5,7 +5,7 @@
   .content-container {
     display: flex;
     flex-direction: column;
-    width: 32%;
+    width: 30%;
     align-items: center;
     padding: 3rem 0;
     margin-bottom: 3rem;
@@ -13,7 +13,7 @@
     box-shadow: 1rem 1rem 2rem #c5c5c5;
 
     .sign-up-form {
-      width: 32rem;
+      width: 70%;
     }
 
     .sign-up-title {
@@ -55,7 +55,7 @@
   }
 }
 
-@media only screen and (max-width:960px) {
+@media only screen and (max-width:1280px) {
   .sign-up-page {
     display: flex;
     justify-content: center;
@@ -67,11 +67,8 @@
       width: 38%;
       align-items: center;
       padding: 2rem 1rem;
-  
-      .sign-up-form {
-        width: 25rem;
-      }
-  
+
+
       .sign-up-title {
         align-self: center;
         margin-bottom: 2rem;
@@ -93,7 +90,7 @@
   } 
 }
 
-@media only screen and (max-width:1000px) {
+@media only screen and (max-width:900px) {
   .sign-up-page {
     .content-container {
       width: 45%;
@@ -115,10 +112,6 @@
       padding: 2rem 1rem;
       border: unset;
       box-shadow: unset;
-  
-      .sign-up-form {
-        width: 22rem;
-      }
   
       .sign-up-title {
         align-self: center;
