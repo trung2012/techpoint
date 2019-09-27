@@ -108,18 +108,20 @@ export const loadUser = () => (dispatch, getState) => {
     }
   }
 
-  axios.get('/api/users', requestConfig)
-    .then(res => {
-      dispatch({
-        type: LOAD_USER_SUCCESS,
-        payload: res.data
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: AUTH_ERROR
+  if (token) {
+    axios.get('/api/users', requestConfig)
+      .then(res => {
+        dispatch({
+          type: LOAD_USER_SUCCESS,
+          payload: res.data
+        });
       })
-    })
+      .catch(err => {
+        dispatch({
+          type: AUTH_ERROR
+        })
+      })
+  }
 }
 
 export const signOut = () => dispatch => {
