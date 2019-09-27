@@ -19,13 +19,28 @@ app.use('/api/cart', cartRouter);
 app.use('/api/items', itemRouter);
 app.use('/api/payment', paymentRouter);
 
+app.use((req, res, next) => {
+  if ((req.get('X-Forwarded-Proto') !== 'https')) {
+    res.redirect('https://' + req.get('Host') + req.url);
+  } else
+    next();
+});
+
 if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if ((req.get('X-Forwarded-Proto') !== 'https')) {
+      res.redirect('https://' + req.get('Host') + req.url);
+    } else
+      next();
+  });
+
   app.use(express.static(path.join(__dirname, 'client/build')));
 
-  app.get('*', function (req, res) {
+  app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
   });
 };
+
 
 const port = process.env.PORT || 5000;
 

@@ -42,6 +42,7 @@
           margin-top: 2rem;
           margin-left: 3rem;
           margin-right: 1rem;
+          font-size: 80%;
         }        
       }
       
@@ -166,16 +167,15 @@
             min-width: 1rem;
             width: 40%;
             height: 4rem;
-            margin-top: 2rem;
-            margin-left: 3rem;
-            margin-right: 1rem;
-            font-size: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 70%;
           }        
         }
         
         .info-title {
           text-align: center;
-          padding: 1rem 3rem;
+          padding: 1.5rem 3rem;
           font-size: 1.8rem;
         }
         
@@ -234,7 +234,16 @@
         .actions {
           display: flex;
           min-width: 15rem;
-          padding-left: 1rem;      
+          padding-left: 1rem;
+          
+          .custom-button {
+            min-width: 1rem;
+            width: 40%;
+            height: 4rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 70%;
+          } 
         }   
 
         .info-title {
