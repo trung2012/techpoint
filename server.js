@@ -19,13 +19,6 @@ app.use('/api/cart', cartRouter);
 app.use('/api/items', itemRouter);
 app.use('/api/payment', paymentRouter);
 
-app.use((req, res, next) => {
-  if ((req.get('X-Forwarded-Proto') !== 'https')) {
-    res.redirect('https://' + req.get('Host') + req.url);
-  } else
-    next();
-});
-
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if ((req.get('X-Forwarded-Proto') !== 'https')) {
