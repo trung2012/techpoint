@@ -22,7 +22,7 @@
   .navigation-links {
     display: flex;
     margin-top: 3.5rem;
-    margin-right: 5rem;
+    margin-right: 3rem;
 
     .navigation-item {
       font-size: 2.2rem;
@@ -63,13 +63,6 @@
         text-decoration: none;  
         color: #fff;
       }
-      
-      // &:hover {     
-      //   .navigation-dropdown {
-      //     visibility: visible;
-      //     transition-delay: 0s;
-      //   }
-      // }
     }    
 
     .signed-in {

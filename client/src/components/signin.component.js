@@ -60,7 +60,7 @@ const SignIn = ({ history, signIn, clearErrors, isSignedIn, signInError }) => {
             <CustomButton text='Sign in' />
           </div>
           <div className='more-options'>
-            <span>Don't have an account?</span>
+            <span className='no-account'>Don't have an account?</span>
             <span className='register-link' onClick={() => history.push('/signup')}>Register Now</span>
           </div>
         </form>
