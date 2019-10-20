@@ -23,4 +23,5 @@ Then run the following commands in the terminal:
 ### `cd client && npm install`
 ### `npm run dev`
 <br/>
+
 ### Enjoy!
