@@ -12,7 +12,7 @@ A responsive full-stack eCommerce website built with React, Redux, Express and M
 Create an .env file in the project root directory with the following variables:
 
 ```
-db=mongodb+srv://<username>:<password>@cluster0-cgfan.mongodb.net/test?retryWrites=true&w=majority
+db=yourMongoDB_URL
 jwtSecret=YOUR_OWN_SECRET
 STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY
 ```
