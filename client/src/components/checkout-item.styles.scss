@@ -24,6 +24,11 @@
 
   .description {
     font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
   }
 
   .quantity {
@@ -64,7 +69,7 @@
         outline: none;
       }
       &:hover {
-        color: #0004ff;
+        color: #00283ad5;
       }
     }
   }

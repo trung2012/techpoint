@@ -27,7 +27,7 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
           <img alt='item' src={imageUrl} className='item-image' />
         </div>
       </div>
-      <div className='item-info description'>
+      <div className='item-info description' onClick={() => history.push(`/products/${_id}`)}>
         {limitString(title)}
       </div>
       <div className='item-info quantity'>
