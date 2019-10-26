@@ -89,10 +89,14 @@
     }
   }
     .description,
-    .quantity,
     .price,
     .remove {
       padding-top: 2.5rem;
+    }
+
+    
+    .quantity {
+      padding-top: 2rem;
     }
 }
 
@@ -115,11 +119,13 @@
         padding: 0 .5rem;
       }
     }
-      .description,
-      .quantity,
       .price,
       .remove {
         padding-top: 2.2rem;
+      }
+      
+      .description {
+        padding-top: 1.9rem;
       }
   }  
 }

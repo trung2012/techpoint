@@ -7,7 +7,7 @@
   width: 100vw;
   left: 0;
   box-shadow: .8rem .8rem 1rem #5e5e5e;
-  margin-top: .8rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
   z-index: 1;
   
@@ -27,5 +27,6 @@
   .navigation-dropdown {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem 0;
   }
 }
