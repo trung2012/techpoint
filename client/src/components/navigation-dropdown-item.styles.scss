@@ -38,7 +38,12 @@
 }
 
 @media only screen and (max-width: 960px) {
-
+  .navigation-dropdown-item {
+    .image-container {
+      width: 12rem;
+      height: 8rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {

@@ -10,19 +10,6 @@
   background: #00283a;
   margin-bottom: 8rem;
 
-  .logo-container {
-    display: flex;
-
-    span {
-      align-self: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fff;
-      cursor: pointer;
-      margin-left: .8rem;
-    }
-  }
-
   .logo {
     margin-left: 1rem;
     cursor: pointer;
@@ -126,11 +113,6 @@
     margin-bottom: 4rem;
     justify-content: space-between;
 
-    .logo-container {  
-      span {
-        display: none;
-      }
-    }
     .logo {
       width: 3.5rem;
       margin-left: .3rem;
