@@ -5,6 +5,12 @@
   justify-content: center;
   margin-bottom: 5rem;
 
+  .custom-button {
+    width: 16rem;
+    height: 4rem;
+    padding: 0 .5rem;
+  }
+
   .checkout-title {
     align-self: flex-start;
     margin-left: 5rem;
@@ -53,7 +59,7 @@
   
   .checkout-totals {
     width: 20%;
-    padding: 1.5rem .5rem;
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;  
@@ -65,7 +71,7 @@
 
     .checkout-total {
       width: 100%;
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: #ff6f6f; 
       margin: 1rem 0;
     }
@@ -79,7 +85,7 @@
 
   .test-warning {
     position: absolute;
-    top: 35rem;
+    top: 45vh;
     right: 4%;
     color: red;
     width: 20%;
@@ -93,8 +99,8 @@
     }
 
     .custom-button {
-      width: 12rem;
-      height: 3.5rem;
+      width: 15rem;
+      height: 4rem;
       padding: 0 .5rem;
     }
 
@@ -162,7 +168,14 @@
 
 
 @media only screen and (max-width: 600px) {
-  .checkout-page {    
+  .checkout-page {   
+    .custom-button {
+      min-width: 1rem;
+      width: 8rem;
+      height: 2.5rem;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    } 
 
     .checkout-details {
       flex-direction: column;
@@ -208,14 +221,6 @@
         width: 100%;
         font-size: 1.3rem;
         margin: .4rem 0;
-      }
-
-      .custom-button {
-        min-width: 1rem;
-        width: 8rem;
-        height: 2.5rem;
-        font-size: .8rem;
-        margin-top: 1.5rem;
       }
     }  
   
