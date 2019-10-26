@@ -51,6 +51,17 @@
   }
 }
 
+@media only screen and (max-width: 1367px) {
+  .product-overview-category {
+    .product-display-item {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+
 @media only screen and (max-width: 960px) {
   .product-overview-category {
   
@@ -100,10 +111,7 @@
         .item-info-list {
           padding-left: 2rem;
         }
-  
-        &:after {
-          display: none;
-        }
+
       }
     }
   }
