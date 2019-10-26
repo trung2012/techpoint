@@ -9,7 +9,7 @@
   .custom-button {
     display: block;
     visibility: hidden;
-    width: 20rem;
+    width: 100%;
   }
 
   &:hover {
@@ -39,10 +39,11 @@
     align-items: center;
     cursor: pointer;
     position: relative;
-    width: 23rem;
+    width: 100%;
     margin-bottom: .5rem;
 
     .item-image {
+      height: auto;
       width: 100%;
       transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 

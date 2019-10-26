@@ -13,9 +13,10 @@
   .logo {
     margin-left: 1rem;
     cursor: pointer;
-    
-    &:hover {
-      animation: bounce 1s cubic-bezier(0.280, 0.840, 0.420, 1);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:active {
+      transform: scale(.7);
     }
   }
 
@@ -94,16 +95,6 @@
     }
   }
   
-}
-
-@keyframes bounce {
-  0%   { transform: scale(1,1)      translateY(0); }
-  10%  { transform: scale(1.1,.9)   translateY(0); }
-  30%  { transform: scale(.9,1.1)   translateY(-3rem); }
-  50%  { transform: scale(1.05,.95) translateY(0); }
-  57%  { transform: scale(1,1)      translateY(-.5rem); }
-  64%  { transform: scale(1,1)      translateY(0); }
-  100% { transform: scale(1,1)      translateY(0); }
 }
 
 @media only screen and (max-width: 960px) {
