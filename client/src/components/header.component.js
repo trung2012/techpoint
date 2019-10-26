@@ -19,6 +19,7 @@ const Header = ({ categories, currentUser, signOut, isDropdownHidden, toggleDrop
     <div className='header'>
       <Link to='/' className='logo-container'>
         <img className='logo' alt='logo' src={logo} />
+        <span>Techpoint</span>
       </Link>
       <div className='navigation-links'>
         <Link to='/' className='navigation-item home'>Home</Link>
