@@ -68,7 +68,7 @@ const ProductDetails = ({ item, history, addItemToCart }) => {
               addedToCart ? <CustomButton text='Added to cart!' buttonType='added-to-cart' />
                 : <CustomButton text='Add to cart' buttonType='add-to-cart' onClick={handleButtonClick} />
             }
-            <CustomButton text='Continue Shopping' buttonType='go-to-home' onClick={() => history.goBack()} />
+            <CustomButton text='Back' buttonType='go-to-home' onClick={() => history.goBack()} />
           </div>
         </div>
       </div>
