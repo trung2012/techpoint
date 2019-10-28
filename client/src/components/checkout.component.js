@@ -52,22 +52,25 @@ const CheckOut = ({ cartItems, cartTotal, cartShipping, history }) => {
 
             <div className='checkout-totals'>
               <div className='checkout-subtotal'>
-                Subtotal: ${cartTotal === 0 ? 0 : cartTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                <span>Subtotal:</span>
+                <span>${cartTotal === 0 ? 0 : cartTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
               </div>
               <div className='checkout-subtotal'>
-                Shipping: ${cartShipping}
+                <span>Shipping:</span>
+                <span>${cartShipping}</span>
               </div>
               <div className='checkout-total'>
-                Total: ${(cartTotal + cartShipping).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                <span>Total:</span>
+                <span>${(cartTotal + cartShipping).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
               </div>
               <div className='checkout-button'>
                 <StripeButton price={(cartTotal + cartShipping)} />
               </div>
-            </div>
-            <div className='test-warning'>
-              *Please use the following test credit card for payments*
-              <br />
-              4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+              <div className='test-warning'>
+                <div>*Please use the following test credit card for payments*</div>
+                <div>4242 4242 4242 4242</div>
+                <div>Exp: 01/20 - CVV: 123</div>
+              </div>
             </div>
           </div>
       }

@@ -114,6 +114,12 @@
 
       .navigation-item {
         font-size: 1.8rem;
+        margin-left: 1rem;
+        margin-right: 1.5rem;
+
+        &:last-child {
+          margin-left: 0;
+        }
       }
       .signed-in {  
         .sign-out {
@@ -149,10 +155,6 @@
       width: 3rem;
       margin-left: .3rem;
       margin-top: .3rem;
-    }
-
-    .home {
-      display: none;
     }
   
     .navigation-links {
@@ -197,5 +199,12 @@
         }
       }
     }    
+  }
+}
+
+
+@media only screen and (max-width: 450px) {
+  .home {
+    display: none;
   }
 }

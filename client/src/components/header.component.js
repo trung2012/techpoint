@@ -39,7 +39,7 @@ const Header = ({ categories, currentUser, signOut, isDropdownHidden, toggleDrop
             </div>
             : <Link to='/signin' className='navigation-item sign-in'>Sign In</Link>
         }
-        <Link className='navigation-item' to='/checkout'>
+        <Link className='navigation-item cart' to='/checkout'>
           <CartIcon />
         </Link>
       </div>
