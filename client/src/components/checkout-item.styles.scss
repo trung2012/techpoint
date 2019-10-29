@@ -43,10 +43,12 @@
       width: 60%;
       
       input {
-        width: 3rem;
+        width: 4rem;
         text-align: center;
         padding: .2rem .4rem;
         margin-bottom: .7rem;
+        outline: none;
+        font-size: 1.8rem;
       }
 
       button {
@@ -103,7 +105,7 @@
 
 @media only screen and (max-width: 960px) {
   .checkout-item {
-    font-size: 1.45rem;
+    font-size: 1.6rem;
   
     .quantity {
       
@@ -111,7 +113,7 @@
         width: 60%;
   
         button {
-          font-size: 1.1rem;
+          font-size: 1.5rem;
         }
       }
   
@@ -134,7 +136,7 @@
 
 @media only screen and (max-width: 600px) {
   .checkout-item {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     
     .quantity {
       
@@ -142,12 +144,12 @@
         width: 60%;
   
         button {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
         }
       }
   
       .text-item {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         padding: 0 .4rem;
       }
     }
