@@ -161,21 +161,60 @@
 
 @media only screen and (max-width: 400px) {
   .checkout-item {
-    font-size: .9rem;
+    font-size: 1.2rem;
   
     .quantity {
-      
+
       form {
         width: 60%;
+        padding-top: .1rem;
   
         button {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
+        }
+
+        input {
+          background: #f3f3f3;
+          border: none;
+          outline: none;
+          font-size: 1.5rem;
         }
       }
   
       .text-item {
-        font-size: 1.2rem;
-        padding: 0 .4rem;
+        width: 50%;
+        text-align: left;
+        font-size: 1.5rem;
+        padding: .1rem .4rem .1rem;
+        position: relative;
+
+        &::before {
+          position: absolute;
+          content: '';
+          left: -.3rem;
+          width: 120%;
+          height: 2.2rem;
+          background: #fafafa;
+          border: .05rem solid #c5c5c5;
+          z-index: -1;
+        }
+  
+        &::after {
+          position: absolute;
+          content: '';          
+          top: .7rem;
+          right: .3rem;
+          height: .5rem;
+          width: .5rem;
+          border-bottom: .2rem solid black;
+          border-right: .2rem solid black;
+          transform: rotate(45deg);
+        }
+      }
+
+      .reduce-quantity,
+      .increase-quantity {
+        display: none;
       }
     }
       .description,
