@@ -35,7 +35,7 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
         {
           isSelectingQuantity ?
             <form onSubmit={updateQuantity}>
-              <input className='quantity-input' value={isNaN(itemQuantity) ? '' : itemQuantity} onChange={e => setItemQuantity(parseInt(e.target.value))} />
+              <input autoFocus className='quantity-input' value={isNaN(itemQuantity) ? '' : itemQuantity} onChange={e => setItemQuantity(parseInt(e.target.value))} />
               <button>Update</button>
             </form>
             :
