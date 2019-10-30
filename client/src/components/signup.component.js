@@ -27,8 +27,8 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
     if (password !== confirmPassword) {
       return setErrorMessage('Passwords do not match. Please try again!')
     }
-    if (password.length <= 6) {
-      return setErrorMessage('Passwords need to be more than 6 characters long')
+    if (password.length < 8) {
+      return setErrorMessage('Passwords need to be at least 8 characters long')
     }
 
     signUpAsync({ displayName, email, password });
