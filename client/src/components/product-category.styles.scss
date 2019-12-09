@@ -37,11 +37,13 @@
       align-items: center;
       
       .custom-button {
+        width: 65%;
         margin: 1.3rem 0;
       }
 
-      .item-info-list {
-        padding-left: 0;
+      .item-info-list {    
+        align-items: center;
+        text-align: center;
       }
 
       &:after {
@@ -56,6 +58,10 @@
     .product-display-item {
       &:after {
         display: none;
+      }
+      
+      .custom-button {
+        width: 90%;
       }
     }
   }
@@ -102,16 +108,12 @@
           }   
         }
         .custom-button {
-          min-width: 10rem;
-          width: 13rem;
-          height: 2.8rem;
-          font-size: .9rem; 
+          width: 12rem;
+          height: 3.2rem;
+          font-size: 1.2rem; 
           margin: 1.3rem 0;
         }
   
-        .item-info-list {
-          padding-left: 2rem;
-        }
 
       }
     }
@@ -162,10 +164,6 @@
           height: 2.5rem;
           font-size: .9rem; 
           margin: 1.3rem 0;
-        }
-  
-        .item-info-list {
-          padding-left: 13%;
         }
   
         &:after {

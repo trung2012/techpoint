@@ -43,9 +43,11 @@ const SignUp = ({ history, signUpAsync, clearErrors, signUpError }) => {
     <div className='sign-up-page'>
       <div className='content-container'>
         <h1 className='sign-up-title'>Sign up with email</h1>
-        <ErrorDisplay text={errorMessage} />
         {
-          signUpError ? <ErrorDisplay text={signUpError} /> : null
+          errorMessage && <ErrorDisplay text={errorMessage} />
+        }
+        {
+          signUpError && <ErrorDisplay text={signUpError} />
         }
         <form className='sign-up-form' onSubmit={handleSubmit}>
           <FormInput

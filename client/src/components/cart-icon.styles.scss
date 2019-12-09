@@ -5,7 +5,8 @@
   width: 6rem;
   height: 6rem;
   position: relative;
-  transform: translate( -.4rem,-1.6rem);
+  margin-right: 2rem;
+  margin-bottom: 10%;
   z-index: 1;
 
   &:hover {
@@ -14,6 +15,9 @@
   }
 
   .item-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: .5rem;
     right: 0;
@@ -21,7 +25,6 @@
     height: 2.1rem;
     text-align: center;
     font-size: 1rem;
-    padding-top: .35rem;
     border-radius: 50%;
     background: rgb(255, 0, 0);
     color: white;
@@ -32,20 +35,18 @@
   stroke: #fff;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1200px) {
   .cart-icon {
-    margin-right: 0;
-    transform: translateY(-1.8rem);
+    margin-right: 1rem;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .cart-icon {
-    width: 2rem;
-    height: 2rem;
-    transform: translateY(-.3rem);
-    margin-left: .8rem;
-    margin-right: 1.6rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-left: 1rem;
+    margin-bottom: 5%;
 
     .item-count {
       top: -1rem;
@@ -54,7 +55,6 @@
       height: 1.7rem;
       text-align: center;
       font-size: .4rem;
-      padding-top: 0.2rem;
       border-radius: 50%;
       background: rgb(255, 0, 0);
       color: white;
