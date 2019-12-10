@@ -35,7 +35,7 @@
         margin: 0 1rem;
 
         &::after {
-          display: none;
+          visibility: hidden;
         }
       }
 
@@ -48,9 +48,9 @@
         display: block;
         transform: scaleX(0);
         height: .2rem;
+        margin-top: .5rem;
         background-color: #fff;
         transition: all .3s ease-out;
-        margin-top: .5rem;
         width: 100%;
       }      
 
@@ -70,20 +70,22 @@
     }    
 
     .signed-in {
-      display: flex;    
+      display: block;
       position: relative;
+
       &::after {
-        display: none;
+        visibility: hidden;
       }
 
       .sign-out {
         display: block;
         position: absolute;
+        top: 0;
         right: -7rem;
         opacity: 0;
         z-index: 1;
         transition: transform .4s ease-out;
-        
+                
       }
       
       &:hover {
@@ -91,7 +93,7 @@
           opacity: 0;
         }
         .sign-out {
-          transform: translateX(-10rem);
+          transform: translateX(-8rem);
           opacity: 1;
         }
       }
