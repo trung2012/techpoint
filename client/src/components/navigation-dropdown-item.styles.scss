@@ -3,19 +3,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 1rem;
   color: #fff;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin: .5rem 1rem;
   z-index: 2;
 
   .image-container {
-    width: 18rem;
-    height: 12rem;
+    width: 15rem;
+    height: 10rem;
     overflow: hidden;
     margin-bottom: 1.5rem;
     text-align: center;    
-    border: .1rem solid #c9c9c9;
+    border: .1rem solid rgb(161, 161, 161);
+    box-shadow: 0 .3rem 1.2rem rgba(#000, .8);
     border-radius: .2rem;
 
     .category-image {

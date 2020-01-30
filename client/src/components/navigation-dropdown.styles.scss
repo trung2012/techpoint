@@ -1,10 +1,10 @@
 .navigation-dropdown {
-  padding: 1rem 0;
+  padding: 2rem 0 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   position: absolute;
   background-color: #00283a;
-  width: 100vw;
+  width: 100%;
   left: 0;
   box-shadow: .8rem .8rem 1rem #5e5e5e;
   margin-top: 1rem;

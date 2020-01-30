@@ -64,10 +64,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;  
-    border: .1rem solid #dfdfdf;
+    flex-direction: column;
     border-radius: .4rem;
-    box-shadow: .3rem .4rem .6rem #cecece;
+    box-shadow: 0 .2rem .6rem #adadad;
     margin-top: 4rem;
 
     .checkout-total {

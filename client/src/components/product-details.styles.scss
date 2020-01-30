@@ -7,8 +7,7 @@
   margin-bottom: 4rem;
 
   .product-details {
-    padding: 1rem 6rem;
-    width: 90%;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-around;    
     height: auto;
@@ -17,6 +16,7 @@
       justify-self: center;
       align-self: center;
       text-align: center;
+      margin-right: 6rem;
 
       .product-image {
         max-width: 45rem;
@@ -59,15 +59,10 @@
       
       .product-info-sections {
         display: flex;
-        padding: 2rem 0;
+        justify-content: space-between;
+        padding: 3rem 4rem 0;
 
         .info-items {
-          width: 70%;
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-          margin-left: 2rem;
-          padding-top: 1rem;
-          padding-left: 4rem;
           font-size: 2rem;
   
           .info-logo-container {
@@ -97,12 +92,10 @@
       width: 30%;
       justify-content: flex-end;
       align-items: flex-start;
-      padding-top: 2rem;
-      padding-right: 4rem;
-      font-size: 5rem;
+      font-size: 4rem;
 
       .price-sub {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
     }
   }   
@@ -147,6 +140,7 @@
       .product-image-container {
         justify-self: center;
         align-self: center;
+        margin-right: 0;
   
         .product-image {
           max-width: 25rem;
@@ -209,12 +203,12 @@
   
 }
 
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .product-details-page {
     margin: unset;
   
     .product-details {
+      padding: 0;
       width: 100%;
       margin-top: 4rem;
       display: grid;
@@ -230,7 +224,7 @@
       }
   
       .product-info {
-        width: 100vw;
+        width: 100%;
         border: none; 
         
         .actions {
@@ -240,7 +234,7 @@
           
           .custom-button {
             min-width: 1rem;
-            width: 40%;
+            width: 20rem;
             height: 4rem;
             margin-left: auto;
             margin-right: auto;
