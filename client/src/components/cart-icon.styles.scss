@@ -44,7 +44,7 @@
     width: 1.75rem;
     height: 1.75rem;
     margin-left: 1rem;
-    margin-bottom: 5%;
+    padding: 0;
 
     .item-count {
       top: -1rem;
@@ -56,6 +56,10 @@
       border-radius: 50%;
       background: rgb(255, 0, 0);
       color: white;
+    }
+
+    &:hover {
+      all: unset;
     }
   }  
 }
