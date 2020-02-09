@@ -187,34 +187,14 @@
       }
   
       .text-item {
-        width: 50%;
-        text-align: left;
+        width: 60%;
+        text-align: center;
         font-size: 1.4rem;
-        padding: .1rem .4rem .1rem;
+        padding: 0 .5rem;
+        margin-top: .3rem;
         position: relative;
-
-        &::before {
-          position: absolute;
-          content: '';
-          left: -.3rem;
-          width: 120%;
-          height: 2.2rem;
-          background: #fafafa;
-          border: .05rem solid #c5c5c5;
-          z-index: -1;
-        }
-  
-        &::after {
-          position: absolute;
-          content: '';          
-          top: .7rem;
-          right: .3rem;
-          height: .5rem;
-          width: .5rem;
-          border-bottom: .2rem solid black;
-          border-right: .2rem solid black;
-          transform: rotate(45deg);
-        }
+        align-self: flex-start;
+        border: 1px solid #c5c5c5;
       }
 
       .reduce-quantity,
