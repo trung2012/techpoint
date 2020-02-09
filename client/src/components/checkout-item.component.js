@@ -51,7 +51,9 @@ const CheckoutItem = ({ item, addItemToCart, removeItemFromCart, clearItemFromCa
       <div className='item-info price'>
         ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
       </div>
-      <div className='item-info remove' onClick={() => clearItemFromCart(item)}>&#10005;</div>
+      <div className='item-info remove'>
+        <span onClick={() => clearItemFromCart(item)}>&#10005;</span>
+      </div>
     </div>
   );
 }

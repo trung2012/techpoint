@@ -85,10 +85,12 @@
 
   .remove {
     font-weight: 900;
-    cursor: pointer;
 
-    &:hover {
-      color: red;
+    span {
+      cursor: pointer;
+      &:hover {
+        color: red;
+      }
     }
   }
     .description,
